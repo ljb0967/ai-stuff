@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>{{ BOOK_TITLE }}</title>
+<style>
+@font-face{font-family:"Pretendard";src:url("{{ fonts }}/PretendardVariable.woff2") format("woff2");font-weight:45 920;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("{{ fonts }}/NotoSerifKR-500.woff2") format("woff2");font-weight:500;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("{{ fonts }}/NotoSerifKR-700.woff2") format("woff2");font-weight:700;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("{{ fonts }}/NotoSerifKR-900.woff2") format("woff2");font-weight:900;font-display:block}
+@font-face{font-family:"Black Han Sans";src:url("{{ fonts }}/BlackHanSans.woff2") format("woff2");font-display:block}
+@font-face{font-family:"Nanum Pen Script";src:url("{{ fonts }}/NanumPenScript.woff2") format("woff2");font-display:block}
+</style>
+<link rel="stylesheet" href="{{ css }}/base.css">
+<link rel="stylesheet" href="{{ css }}/theme-{{ theme }}.css">
+</head>
+<body class="theme-{{ theme }}">
+{% import "blocks.html.j2" as B with context %}
+{% for pg in pages %}
+{% set doc = pg.doc %}
+{% set t = pg.type or "concept" %}
+<section class="page page--{{ t }}" id="p{{ pg.no }}" data-page="{{ pg.no }}" data-type="{{ t }}"{% if doc.unit %} data-unit="{{ doc.unit }}"{% endif %}>
+{% if t not in ["cover", "divider"] %}
+  <header class="rh">
+    {% if doc.unit %}
+    <span class="rh-part">PART {{ doc.part }} · {{ doc.part_title }}</span>
+    <span class="rh-unit"><b>{{ "%02d" % doc.unit }}</b> {{ doc.title }}</span>
+    {% else %}
+    <span class="rh-part">{{ BOOK_TITLE }}</span>
+    <span class="rh-unit">{{ pg.title or doc.title }}</span>
+    {% endif %}
+  </header>
+  {% if doc.unit %}<div class="thumb" style="--u:{{ doc.unit }}">{{ "%02d" % doc.unit }}</div>{% endif %}
+{% endif %}
+  <div class="body{% if pg.side %} has-side{% endif %}">
+    <div class="main">
+{% if t == "cover" %}{{ B.cover(pg, doc) }}
+{% elif t == "divider" %}{{ B.divider(pg) }}
+{% elif t == "opener" %}{{ B.opener(pg, doc) }}
+{% elif t == "toc" %}{{ B.toc(book) }}
+{% elif t == "answers" %}{{ B.answers(book, pg) }}
+{% elif t == "glossary" %}{{ B.glossary(book, pg) }}
+{% else %}
+      {{ B.page_head(pg, doc) }}
+      {% for b in pg.blocks %}{{ B.block(b) }}{% endfor %}
+{% endif %}
+    </div>
+    {% if pg.side %}
+    <aside class="side">
+      {% for b in pg.side %}{{ B.block(b) }}{% endfor %}
+    </aside>
+    {% endif %}
+  </div>
+{% if t not in ["cover"] %}
+  <footer class="folio"><span class="folio-no">{{ pg.no }}</span><span class="folio-title">{{ BOOK_TITLE }}</span></footer>
+{% endif %}
+</section>
+{% endfor %}
+</body>
+</html>
