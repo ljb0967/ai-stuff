@@ -208,8 +208,13 @@ def write_packet(dirpath: pathlib.Path, prompt: str, images: list[pathlib.Path])
         + SYSTEM_PROMPT + "\n\n" + prompt,
         encoding="utf-8",
     )
+    seen = set()
     for img in images:
-        shutil.copy(img, dirpath / img.name)
+        name = img.name if img.name not in seen else f"{img.parent.name}-{img.name}"
+        if img.parent.name not in ("inputs",) and any(i.name == img.name and i != img for i in images):
+            name = f"{img.parent.name}-{img.name}"  # 같은 파일명이 여럿이면 폴더명을 붙인다
+        seen.add(name)
+        shutil.copy(img, dirpath / name)
 
 
 # ---------------------------------------------------------------- main

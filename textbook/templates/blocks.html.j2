@@ -1,0 +1,516 @@
+{# ================================================================
+   교안 컴포넌트 라이브러리 — 모든 페이지는 이 매크로로만 그린다.
+   (디자인 일관성: 새 모양이 필요하면 여기에 추가하고 DESIGN_SYSTEM.md에 기록)
+   ================================================================ #}
+
+{% macro page_head(pg, doc) %}
+{% set t = pg.type or "concept" %}
+{% if t == "concept" %}
+<div class="sec-head">
+  <span class="sec-no">{{ pg.sec }}</span>
+  <h2 class="sec-title">{{ pg.title | md }}</h2>
+</div>
+{% elif t in ["example", "exercises", "summary", "practice", "project"] %}
+<div class="kind-head kind-head--{{ t }}">
+  <span class="kind-label">{{ {"example":"예제", "exercises":"확인 문제", "summary":"단원 마무리", "practice":"따라 해 보기", "project":"프로젝트"}[t] }}</span>
+  {% if pg.title %}<h2 class="kind-title">{{ pg.title | md }}</h2>{% endif %}
+</div>
+{% elif t == "front" %}
+<div class="front-head"><h1 class="front-title">{{ pg.title | md }}</h1>{% if pg.subtitle %}<p class="front-sub">{{ pg.subtitle | md }}</p>{% endif %}</div>
+{% endif %}
+{% endmacro %}
+
+{# ---------------------------------------------------------------- dispatcher #}
+{% macro block(b) %}
+{% set k = b.type %}
+{% if k == "p" %}<p class="para">{{ b.text | md }}</p>
+{% elif k == "lead" %}<p class="lead">{{ b.text | md }}</p>
+{% elif k == "h3" %}<h3 class="h3">{{ b.text | md }}</h3>
+{% elif k == "list" %}<ul class="list">{% for it in b.items %}<li>{{ it | md }}</li>{% endfor %}</ul>
+{% elif k == "olist" %}<ol class="list list--ol">{% for it in b.items %}<li>{{ it | md }}</li>{% endfor %}</ol>
+{% elif k == "concept" %}{{ concept(b) }}
+{% elif k == "warn" %}{{ callout(b, "warn", "주의") }}
+{% elif k == "tip" %}{{ callout(b, "tip", "TIP") }}
+{% elif k == "info" %}{{ callout(b, "info", "더 알아보기") }}
+{% elif k == "note" %}{{ note(b) }}
+{% elif k == "myth" %}{{ myth(b) }}
+{% elif k == "figure" %}{{ figure(b) }}
+{% elif k == "table" %}{{ table(b) }}
+{% elif k == "example" %}{{ example(b) }}
+{% elif k == "similar" %}{{ similar(b) }}
+{% elif k == "exercises" %}{{ exercises(b) }}
+{% elif k == "steps" %}{{ steps(b) }}
+{% elif k == "prompt" %}{{ prompt(b) }}
+{% elif k == "checklist" %}{{ checklist(b) }}
+{% elif k == "summary" %}{{ summary(b) }}
+{% elif k == "quote" %}<blockquote class="quote">{{ b.text | md }}{% if b.by %}<cite>{{ b.by | md }}</cite>{% endif %}</blockquote>
+{% elif k == "persona" %}{{ persona(b) }}
+{% elif k == "worksheet" %}{{ worksheet(b) }}
+{% elif k == "rubric" %}{{ rubric(b) }}
+{% elif k == "spacer" %}<div class="spacer" style="height:{{ b.text or '6mm' }}"></div>
+{% elif k == "html" %}{{ b.text }}
+{% else %}<div class="unknown-block">[{{ k }}]</div>
+{% endif %}
+{% endmacro %}
+
+{# ---------------------------------------------------------------- boxes #}
+{% macro concept(b) %}
+<div class="concept">
+  <div class="concept-tab">{{ b.label or "핵심 개념" }}</div>
+  {% if b.title %}<div class="concept-title">{{ b.title | md }}</div>{% endif %}
+  <div class="concept-body">{{ b.body | mdb }}</div>
+</div>
+{% endmacro %}
+
+{% macro callout(b, kind, default_label) %}
+<div class="callout callout--{{ kind }}">
+  <div class="callout-label">{{ b.label or default_label }}</div>
+  <div class="callout-body">{% if b.title %}<b class="callout-title">{{ b.title | md }}</b> {% endif %}{{ (b.body or b.text) | mdb }}</div>
+</div>
+{% endmacro %}
+
+{% macro note(b) %}
+<div class="note note--{{ b.kind or 'term' }}">
+  <div class="note-label">{{ {"term":"용어", "tip":"TIP", "warn":"주의", "link":"연결", "fact":"알아 두기", "teacher":"강사 메모"}.get(b.kind or "term") }}</div>
+  {% if b.title %}<div class="note-title">{{ b.title | md }}</div>{% endif %}
+  <div class="note-body">{{ (b.body or b.text) | mdb }}</div>
+</div>
+{% endmacro %}
+
+{% macro myth(b) %}
+<div class="myth">
+  <div class="myth-head">{{ b.label or "오해와 진실" }}</div>
+  {% for it in b.items %}
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>{{ it.myth | md }}</div>
+    <div class="myth-o"><span class="mk">진실</span>{{ it.truth | md }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# ---------------------------------------------------------------- figures #}
+{% macro figure(b) %}
+<figure class="fig fig--{{ b.kind }}{% if b.size %} fig--{{ b.size }}{% endif %}">
+  <div class="fig-inner">
+  {% if b.kind in SVG_FIGS %}{{ b | svg }}
+  {% elif b.kind == "bar" %}{{ fig_bar(b) }}
+  {% elif b.kind == "tokens" %}{{ fig_tokens(b) }}
+  {% elif b.kind == "flow" %}{{ fig_flow(b) }}
+  {% elif b.kind == "stairs" %}{{ fig_stairs(b) }}
+  {% elif b.kind == "chat" %}{{ fig_chat(b) }}
+  {% elif b.kind == "chatui" %}{{ fig_chatui(b) }}
+  {% elif b.kind == "agentlog" %}{{ fig_agentlog(b) }}
+  {% elif b.kind == "approval" %}{{ fig_approval(b) }}
+  {% elif b.kind == "timeline" %}{{ fig_timeline(b) }}
+  {% elif b.kind == "matrix" %}{{ fig_matrix(b) }}
+  {% elif b.kind == "ladder" %}{{ fig_ladder(b) }}
+  {% elif b.kind == "compare" %}{{ fig_compare(b) }}
+  {% elif b.kind == "cards" %}{{ fig_cards(b) }}
+  {% elif b.kind == "dayline" %}{{ fig_dayline(b) }}
+  {% elif b.kind == "redact" %}{{ fig_redact(b) }}
+  {% elif b.kind == "decompose" %}{{ fig_decompose(b) }}
+  {% elif b.kind == "image" %}<img src="{{ b.src }}" alt="{{ b.alt or b.caption }}">
+  {% endif %}
+  </div>
+  {% if b.caption %}<figcaption>{% if b.label %}<span class="fig-no">{{ b.label }}</span>{% endif %}{{ b.caption | md }}</figcaption>{% endif %}
+</figure>
+{% endmacro %}
+
+{% macro fig_bar(b) %}
+{% set mx = b.max or (b.items | map(attribute=1) | max) %}
+<div class="bars">
+{% for it in b.items %}
+  <div class="bar-row{% if it[0] == b.highlight %} is-hl{% endif %}">
+    <span class="bar-label">{{ it[0] | md }}</span>
+    <span class="bar-track"><span class="bar-fill" style="width:{{ (it[1] / mx * 100) | round(1) }}%"></span></span>
+    <span class="bar-val">{{ it[1] }}{{ b.unit or "" }}</span>
+  </div>
+{% endfor %}
+</div>
+{% if b.source %}<div class="fig-source">출처: {{ b.source | md }}</div>{% endif %}
+{% endmacro %}
+
+{% macro fig_tokens(b) %}
+<div class="tokens">
+{% for row in b.rows %}
+  <div class="tok-row"><span class="tok-step">{{ loop.index }}</span>
+  {% for w in row %}<span class="tok{% if loop.last and not loop.first %} tok--new{% endif %}">{{ w }}</span>{% endfor %}
+  {% if loop.last and b.next %}<span class="tok tok--q">{{ b.next }}</span>{% endif %}
+  </div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_flow(b) %}
+<div class="flow flow--{{ b.dir or 'h' }}">
+{% for st in b.steps %}
+  <div class="flow-step{% if st.hl %} is-hl{% endif %}">
+    <div class="flow-no">{{ st.no or loop.index }}</div>
+    <div class="flow-title">{{ st.title | md }}</div>
+    {% if st.desc %}<div class="flow-desc">{{ st.desc | md }}</div>{% endif %}
+  </div>
+  {% if not loop.last %}<div class="flow-arrow" aria-hidden="true"></div>{% endif %}
+{% endfor %}
+</div>
+{% if b.loop %}<div class="flow-loop">↺ {{ b.loop | md }}</div>{% endif %}
+{% endmacro %}
+
+{% macro fig_stairs(b) %}
+<div class="stairs" style="--n:{{ b.steps | length }}">
+{% for st in b.steps %}
+  <div class="stair{% if loop.index0 == b.highlight %} is-hl{% endif %}" style="--i:{{ loop.index }}">
+    <div class="stair-no">{{ st.no if st.no is defined else loop.index0 }}</div>
+    <div class="stair-title">{{ st.title | md }}</div>
+    {% if st.desc %}<div class="stair-desc">{{ st.desc | md }}</div>{% endif %}
+  </div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro window(title, cls="") %}
+<div class="win {{ cls }}">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">{{ title or "AI 대화" }}</span></div>
+  {{ caller() }}
+</div>
+{% endmacro %}
+
+{% macro fig_chat(b) %}
+{% call window(b.title) %}
+<div class="chat">
+{% for m in b.messages %}
+  <div class="msg msg--{{ m.who }}">
+    {% if m.who in ["user", "ai", "agent"] %}<span class="msg-who">{{ m.name or {"user":"나", "ai":"AI", "agent":"에이전트"}[m.who] }}</span>{% endif %}
+    <div class="msg-bubble">{{ m.text | mdb }}</div>
+    {% if m.mark %}<span class="msg-mark">{{ m.mark }}</span>{% endif %}
+  </div>
+{% endfor %}
+</div>
+{% if b.input is not none %}<div class="chat-input"><span class="chat-plus">＋</span><span class="chat-ph">{{ b.input or "AI에게 물어보세요" }}</span><span class="chat-mic">🎤</span><span class="chat-send">↑</span></div>{% endif %}
+{% endcall %}
+{% endmacro %}
+
+{% macro fig_chatui(b) %}
+<div class="chatui-wrap">
+{% call window("AI 대화 서비스", "chatui") %}
+<div class="cu">
+  <div class="cu-side">
+    <div class="cu-new">✎ 새 대화 <span class="pin">②</span></div>
+    <div class="cu-hist-title">지난 대화 <span class="pin">①</span></div>
+    <div class="cu-hist">손주 생일 메시지</div><div class="cu-hist">제주 여행 계획</div><div class="cu-hist">혈압에 좋은 운동</div>
+    <div class="cu-set">⚙ 설정 <span class="pin">⑧</span></div>
+  </div>
+  <div class="cu-main">
+    <div class="cu-msgs"><span class="pin pin--l">③</span>
+      <div class="msg msg--user"><div class="msg-bubble">AI를 처음 써 봐요. 뭘 물어보면 좋을까요?</div></div>
+      <div class="msg msg--ai"><div class="msg-bubble">반갑습니다! 예를 들어 이런 걸 물어보실 수 있어요. ① 문자 대신 써 주기 ② 긴 글 요약…</div></div>
+    </div>
+    <div class="chat-input"><span class="chat-plus">＋<span class="pin">⑤</span></span><span class="chat-ph">여기에 질문을 입력하세요<span class="pin">④</span></span><span class="chat-mic">🎤<span class="pin">⑥</span></span><span class="chat-send">↑<span class="pin">⑦</span></span></div>
+  </div>
+</div>
+{% endcall %}
+{% if b.legend %}
+<ol class="cu-legend">{% for it in b.legend %}<li><span class="pin">{{ CIRCLED[loop.index0] }}</span>{{ it | md }}</li>{% endfor %}</ol>
+{% endif %}
+</div>
+{% endmacro %}
+
+{% macro fig_agentlog(b) %}
+{% call window(b.title or "에이전트 작업 화면", "agentwin") %}
+<div class="ag">
+  {% if b.goal %}<div class="ag-goal"><b>맡긴 일</b> {{ b.goal | md }}</div>{% endif %}
+  <div class="ag-cols">
+    <div class="ag-plan"><div class="ag-h">할 일 목록</div>
+      {% for it in b.plan %}<div class="ag-task ag-task--{{ it.state or 'todo' }}"><span class="ag-box"></span>{{ it.text | md }}</div>{% endfor %}
+    </div>
+    <div class="ag-log"><div class="ag-h">진행 기록</div>
+      {% for ln in b.log %}<div class="ag-line{% if ln is mapping and ln.hl %} is-hl{% endif %}">{{ (ln.text if ln is mapping else ln) | md }}</div>{% endfor %}
+    </div>
+  </div>
+  {% if b.ask %}<div class="ag-ask"><span class="ag-ask-mark">?</span>{{ b.ask | md }}</div>{% endif %}
+  <div class="ag-ctrl"><span class="ag-stop">■ 멈추기</span><span class="ag-reply">에이전트에게 말하기…</span></div>
+</div>
+{% endcall %}
+{% endmacro %}
+
+{% macro fig_approval(b) %}
+<div class="approval">
+  <div class="ap-head">🔒 {{ b.title or "승인이 필요합니다" }}</div>
+  <div class="ap-text">{{ b.text | md }}</div>
+  {% if b.lines %}<dl class="ap-lines">{% for k, v in b.lines %}<dt>{{ k }}</dt><dd>{{ v | md }}</dd>{% endfor %}</dl>{% endif %}
+  <div class="ap-btns">{% for btn in (b.buttons or ["거절", "한 번만 허용", "항상 허용"]) %}<span class="ap-btn{% if loop.first %} ap-btn--no{% endif %}">{{ btn }}</span>{% endfor %}</div>
+</div>
+{% endmacro %}
+
+{% macro fig_timeline(b) %}
+<div class="timeline">
+{% for ev in b.events %}
+  <div class="tl-ev{% if ev.hl %} is-hl{% endif %}"><div class="tl-date">{{ ev.date | md }}</div><div class="tl-dot"></div><div class="tl-text">{{ ev.text | md }}</div></div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_matrix(b) %}
+<div class="matrix">
+  <div class="mx-ylabel">{{ b.ylabel | md }}</div>
+  <div class="mx-grid">
+    {% for row in b.cells %}{% for c in row %}
+    <div class="mx-cell mx-cell--{{ c.tone or 'mid' }}"><div class="mx-title">{{ c.title | md }}</div><div class="mx-desc">{{ c.desc | md }}</div></div>
+    {% endfor %}{% endfor %}
+  </div>
+  <div class="mx-y"><span>{{ b.y[0] | md }}</span><span>{{ b.y[1] | md }}</span></div>
+  <div class="mx-x"><span>{{ b.x[0] | md }}</span><span>{{ b.x[1] | md }}</span></div>
+  <div class="mx-xlabel">{{ b.xlabel | md }}</div>
+</div>
+{% endmacro %}
+
+{% macro fig_ladder(b) %}
+<div class="ladder">
+{% for st in b.steps %}
+  <div class="rung rung--{{ loop.index }}" style="--i:{{ loop.index }}">
+    <span class="rung-no">{{ loop.index }}</span><span class="rung-title">{{ st.title | md }}</span><span class="rung-desc">{{ st.desc | md }}</span>
+  </div>
+{% endfor %}
+{% if b.axis %}<div class="ladder-axis">{{ b.axis | md }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro fig_compare(b) %}
+<div class="compare">
+  {% for side in [b.left, b.right] %}
+  <div class="cmp cmp--{{ loop.index }}">
+    <div class="cmp-title">{{ side.title | md }}</div>
+    {% if side.chat %}{{ fig_chat({"messages": side.chat, "title": side.wtitle, "input": none}) }}{% endif %}
+    {% if side.items %}<ul>{% for it in side.items %}<li>{{ it | md }}</li>{% endfor %}</ul>{% endif %}
+    {% if side.body %}<div class="cmp-body">{{ side.body | mdb }}</div>{% endif %}
+    {% if side.verdict %}<div class="cmp-verdict">{{ side.verdict | md }}</div>{% endif %}
+  </div>
+  {% if loop.first %}<div class="cmp-vs">{{ b.vs or "VS" }}</div>{% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_cards(b) %}
+<div class="cards" style="--cols:{{ b.cols or 3 }}">
+{% for it in b.items %}
+  <div class="card"><div class="card-key">{{ it.key }}</div><div class="card-title">{{ it.title | md }}</div><div class="card-desc">{{ it.desc | md }}</div>{% if it.ex %}<div class="card-ex">{{ it.ex | md }}</div>{% endif %}</div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_dayline(b) %}
+<div class="dayline">
+{% for ev in b.events %}
+  <div class="dl-ev"><div class="dl-time">{{ ev.time }}</div><div class="dl-icon">{{ ev.icon }}</div><div class="dl-title">{{ ev.title | md }}</div><div class="dl-ai">{{ ev.ai | md }}</div></div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_redact(b) %}
+<div class="redact">
+  <div class="rd rd--before"><div class="rd-h">고치기 전</div><div class="rd-body">{{ b.before | mdb }}</div></div>
+  <div class="rd-arrow">→</div>
+  <div class="rd rd--after"><div class="rd-h">가명 처리 후</div><div class="rd-body">{{ b.after | mdb }}</div></div>
+</div>
+{% endmacro %}
+
+{% macro fig_decompose(b) %}
+<div class="decomp">
+  <div class="dc-sentence">{% for seg in b.segments %}<span class="dc-seg dc-seg--{{ seg.tag }}">{{ seg.text }}</span>{% endfor %}</div>
+  <div class="dc-legend">{% for tag, label in b.legend %}<span class="dc-key dc-seg--{{ tag }}">{{ label }}</span>{% endfor %}</div>
+</div>
+{% endmacro %}
+
+{# ---------------------------------------------------------------- table #}
+{% macro table(b) %}
+<figure class="tbl{% if b.cls %} tbl--{{ b.cls }}{% endif %}">
+  <table>
+    {% if b.widths %}<colgroup>{% for w in b.widths %}<col style="width:{{ w }}">{% endfor %}</colgroup>{% endif %}
+    {% if b.head %}<thead><tr>{% for h in b.head %}<th>{{ h | md }}</th>{% endfor %}</tr></thead>{% endif %}
+    <tbody>{% for row in b.rows %}<tr>{% for c in row %}<td>{{ c | md }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+  </table>
+  {% if b.caption %}<figcaption>{% if b.label %}<span class="fig-no">{{ b.label }}</span>{% endif %}{{ b.caption | md }}</figcaption>{% endif %}
+</figure>
+{% endmacro %}
+
+{# ---------------------------------------------------------------- problems #}
+{% macro level(n) %}<span class="lv" aria-label="난이도 {{ n }}">{% for i in range(3) %}<i class="{{ 'on' if i < (n or 1) else '' }}">★</i>{% endfor %}</span>{% endmacro %}
+
+{% macro example(b) %}
+<div class="example">
+  <div class="ex-head"><span class="ex-label">예제 {{ b.no }}</span>{% if b.title %}<span class="ex-title">{{ b.title | md }}</span>{% endif %}{% if b.level %}{{ level(b.level) }}{% endif %}</div>
+  <div class="ex-q">{{ b.q | mdb }}</div>
+  {% if b.figure %}{{ figure(b.figure) }}{% endif %}
+  <div class="ex-sol">
+    <div class="ex-sol-label">풀이</div>
+    <ol class="ex-steps">{% for st in b.steps %}<li>{{ st | md }}</li>{% endfor %}</ol>
+    {% if b.answer %}<div class="ex-answer"><span>답</span>{{ b.answer | md }}</div>{% endif %}
+  </div>
+  {% if b.memo %}<div class="ex-memo">{{ b.memo | md }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro similar(b) %}
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 {{ b.no }}</span>{% if b.level %}{{ level(b.level) }}{% endif %}<span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q">{{ b.q | mdb }}</div>
+  {% if b.choices %}<ol class="choices">{% for c in b.choices %}<li><span class="ch-no">{{ CIRCLED[loop.index0] }}</span>{{ c | md }}</li>{% endfor %}</ol>{% endif %}
+  {% if b.lines %}<div class="write-lines" style="--n:{{ b.lines }}"></div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro exercises(b) %}
+<ol class="exs">
+{% for it in b.items %}
+  <li class="exq exq--{{ it.kind or 'short' }}">
+    <div class="exq-head"><span class="exq-no">{{ "%02d" % it.no }}</span>{{ level(it.level) }}{% if it.tag %}<span class="exq-tag">{{ it.tag }}</span>{% endif %}</div>
+    <div class="exq-q">{{ it.q | mdb }}</div>
+    {% if it.figure %}{{ figure(it.figure) }}{% endif %}
+    {% if it.kind == "mc" %}
+      <ol class="choices{% if it.cols %} choices--cols{{ it.cols }}{% endif %}">{% for c in it.choices %}<li><span class="ch-no">{{ CIRCLED[loop.index0] }}</span>{{ c | md }}</li>{% endfor %}</ol>
+    {% elif it.kind == "ox" %}
+      <div class="ox-list">{% for s in it.statements %}<div class="ox-row"><span class="ox-s">({{ "ㄱㄴㄷㄹㅁㅂ"[loop.index0] }}) {{ s | md }}</span><span class="ox-box">O · X</span></div>{% endfor %}</div>
+    {% elif it.kind == "match" %}
+      <div class="match">{% for l, r in it.pairs %}<div class="match-row"><span class="match-l">{{ "ㄱㄴㄷㄹㅁㅂ"[loop.index0] }}. {{ l | md }}</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">{{ CIRCLED[loop.index0] }} {{ r | md }}</span></div>{% endfor %}</div>
+    {% elif it.kind in ["short", "essay", "practice"] %}
+      {% if it.lines %}<div class="write-lines" style="--n:{{ it.lines }}"></div>{% endif %}
+      {% if it.kind == "practice" %}<div class="done-check">☐ 직접 해 봤어요</div>{% endif %}
+    {% endif %}
+  </li>
+{% endfor %}
+</ol>
+{% endmacro %}
+
+{% macro steps(b) %}
+<div class="steps">
+  {% if b.title %}<div class="steps-title">{{ b.title | md }}</div>{% endif %}
+  {% for st in b.items %}
+  <div class="step"><span class="step-no">{{ loop.index }}</span><div class="step-body">{{ (st.text if st is mapping else st) | md }}{% if st is mapping and st.prompt %}{{ prompt({"text": st.prompt}) }}{% endif %}</div></div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro prompt(b) %}
+<div class="prompt">
+  <div class="prompt-label">{{ b.label or "이렇게 입력해 보세요" }}</div>
+  <div class="prompt-text">{{ b.text | mdb }}</div>
+</div>
+{% endmacro %}
+
+{% macro checklist(b) %}
+<div class="checklist">
+  <div class="ck-head"><span>{{ b.title or "스스로 점검하기" }}</span><span class="ck-scale"><i>잘함</i><i>보통</i><i>다시</i></span></div>
+  {% for it in b.items %}<div class="ck-row"><span class="ck-text">{{ it | md }}</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div>{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro summary(b) %}
+<div class="summary">
+  <div class="sum-head">{{ b.title or "핵심 정리" }}</div>
+  <ol>{% for it in b.items %}<li>{{ it | md }}</li>{% endfor %}</ol>
+</div>
+{% endmacro %}
+
+{% macro persona(b) %}
+<div class="personas">
+{% for p in b.items %}
+  <div class="persona"><div class="ps-face">{{ p.face }}</div><div class="ps-info"><div class="ps-name">{{ p.name }} <small>{{ p.meta }}</small></div><div class="ps-desc">{{ p.desc | md }}</div><div class="ps-want">{{ p.want | md }}</div></div></div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro worksheet(b) %}
+<div class="worksheet">
+  {% if b.title %}<div class="ws-title">{{ b.title | md }}</div>{% endif %}
+  {% for row in b.rows %}
+  <div class="ws-row"><div class="ws-k">{{ row[0] | md }}</div><div class="ws-v">{% if row[1] %}{{ row[1] | md }}{% else %}<span class="ws-blank"></span>{% endif %}</div></div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro rubric(b) %}
+{{ table({"head": b.head, "rows": b.rows, "caption": b.caption, "label": b.label, "cls": "rubric", "widths": b.widths}) }}
+{% endmacro %}
+
+{# ---------------------------------------------------------------- special pages #}
+{% macro cover(pg, doc) %}
+<div class="cover">
+  <div class="cover-top">{{ pg.kicker | md }}</div>
+  <h1 class="cover-title">{{ pg.title | md }}</h1>
+  <p class="cover-sub">{{ pg.subtitle | md }}</p>
+  <div class="cover-art">{% if pg.figure %}{{ figure(pg.figure) }}{% endif %}</div>
+  <div class="cover-bottom">{{ pg.bottom | md }}</div>
+</div>
+{% endmacro %}
+
+{% macro divider(pg) %}
+<div class="divider">
+  <div class="dv-part">PART {{ pg.part }}</div>
+  <h1 class="dv-title">{{ pg.title | md }}</h1>
+  <p class="dv-sub">{{ pg.subtitle | md }}</p>
+  <ul class="dv-units">{% for u in pg.units %}<li><b>{{ "%02d" % u[0] }}</b> {{ u[1] }}</li>{% endfor %}</ul>
+</div>
+{% endmacro %}
+
+{% macro opener(pg, doc) %}
+<div class="op">
+  <div class="op-top">
+    <div class="op-unit"><span class="op-unit-label">UNIT</span><span class="op-unit-no">{{ "%02d" % doc.unit }}</span></div>
+    <div class="op-titles">
+      <div class="op-part">PART {{ doc.part }} · {{ doc.part_title }}</div>
+      <h1 class="op-title">{{ doc.title }}</h1>
+      {% if pg.subtitle %}<p class="op-sub">{{ pg.subtitle | md }}</p>{% endif %}
+    </div>
+  </div>
+  <div class="op-goals">
+    <div class="op-h">학습 목표</div>
+    <ol>{% for g in pg.goals %}<li>{{ g | md }}</li>{% endfor %}</ol>
+  </div>
+  {% if pg.why %}<div class="op-why"><div class="op-h">왜 배우나요?</div><div>{{ pg.why | mdb }}</div></div>{% endif %}
+  {% if pg.hook %}
+  <div class="op-hook">
+    <div class="op-h">생각 열기</div>
+    <div class="op-hook-q">{{ pg.hook.q | md }}</div>
+    {% if pg.hook.figure %}{{ figure(pg.hook.figure) }}{% endif %}
+  </div>
+  {% endif %}
+  {% for b in pg.blocks %}{{ block(b) }}{% endfor %}
+  <div class="op-bottom">
+    {% if pg.keywords %}<div class="op-keys"><span class="op-h2">핵심 용어</span>{% for k in pg.keywords %}<span class="chip">{{ k }}</span>{% endfor %}</div>{% endif %}
+    {% if pg.map %}<div class="op-map"><span class="op-h2">이 단원의 흐름</span>{% for m in pg.map %}<span class="op-map-step">{{ m }}</span>{% if not loop.last %}<span class="op-map-arrow">›</span>{% endif %}{% endfor %}</div>{% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro toc(book) %}
+<div class="front-head"><h1 class="front-title">차례</h1></div>
+<div class="toc">
+{% for e in book.toc %}
+  {% if e.divider %}<div class="toc-part">{{ e.title | md }}</div>
+  {% else %}<div class="toc-row"><span class="toc-no">{{ "%02d" % e.unit }}</span><span class="toc-title">{{ e.title }}</span><span class="toc-dots"></span><span class="toc-page">{{ e.page }}</span></div>{% endif %}
+{% endfor %}
+{% for e in book.toc_extra or [] %}<div class="toc-row toc-row--extra"><span class="toc-no">부록</span><span class="toc-title">{{ e.title }}</span><span class="toc-dots"></span><span class="toc-page">{{ e.page }}</span></div>{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro answers(book, pg) %}
+<div class="kind-head kind-head--answers"><span class="kind-label">정답 및 해설</span>{% if pg.title %}<h2 class="kind-title">{{ pg.title | md }}</h2>{% endif %}</div>
+<div class="answers">
+{% for u in pg.units %}
+  <div class="ans-unit"><div class="ans-unit-h">{{ "%02d" % u }}단원</div>
+  {% for a in book.answers if a.unit == u %}
+    <div class="ans"><span class="ans-no">{{ a.kind }} {{ a.no if a.kind == "유제" else "%02d" % a.no }}</span><span class="ans-a">{{ a.answer | md }}</span>{% if a.explain %}<div class="ans-x">{{ a.explain | mdb }}</div>{% endif %}</div>
+  {% endfor %}
+  </div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro glossary(book, pg) %}
+<div class="kind-head kind-head--answers"><span class="kind-label">부록</span><h2 class="kind-title">{{ pg.title | md }}</h2></div>
+<dl class="gloss">
+{% for g in (book.glossary | sort(attribute="term"))[pg.start or 0 : pg.end or 999] %}
+  <div class="gl"><dt>{{ g.term }}{% if g.en %} <small>{{ g.en }}</small>{% endif %}</dt><dd>{{ g.desc | md }} <span class="gl-u">→ {{ g.unit }}단원</span></dd></div>
+{% endfor %}
+</dl>
+{% endmacro %}

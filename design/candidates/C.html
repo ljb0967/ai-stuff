@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>처음 배우는 AI 리터러시</title>
+<style>
+@font-face{font-family:"Pretendard";src:url("../../textbook/assets/fonts/PretendardVariable.woff2") format("woff2");font-weight:45 920;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../../textbook/assets/fonts/NotoSerifKR-500.woff2") format("woff2");font-weight:500;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../../textbook/assets/fonts/NotoSerifKR-700.woff2") format("woff2");font-weight:700;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../../textbook/assets/fonts/NotoSerifKR-900.woff2") format("woff2");font-weight:900;font-display:block}
+@font-face{font-family:"Black Han Sans";src:url("../../textbook/assets/fonts/BlackHanSans.woff2") format("woff2");font-display:block}
+@font-face{font-family:"Nanum Pen Script";src:url("../../textbook/assets/fonts/NanumPenScript.woff2") format("woff2");font-display:block}
+</style>
+<link rel="stylesheet" href="../../textbook/assets/css/base.css">
+<link rel="stylesheet" href="../../textbook/assets/css/theme-c.css">
+</head>
+<body class="theme-c">
+<section class="page page--opener" id="p1" data-page="1" data-type="opener" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+<div class="op">
+  <div class="op-top">
+    <div class="op-unit"><span class="op-unit-label">UNIT</span><span class="op-unit-no">02</span></div>
+    <div class="op-titles">
+      <div class="op-part">PART 1 · AI와 친해지기</div>
+      <h1 class="op-title">생성형 AI는 어떻게 말을 만들까</h1>
+<p class="op-sub">그럴듯한 다음 말을 고르는 기계, 그래서 생기는 장점과 한계</p>    </div>
+  </div>
+  <div class="op-goals">
+    <div class="op-h">학습 목표</div>
+    <ol><li>생성형 AI가 <strong>"다음에 올 말을 예측"</strong>해 문장을 만든다는 것을 설명할 수 있다.</li><li>같은 질문에도 답이 <strong>매번 조금씩 다른 이유</strong>를 말할 수 있다.</li><li>생성형 AI의 <strong>한계 세 가지</strong>(환각, 지식 시점, 대화 기억 한계)를 예를 들어 설명할 수 있다.</li></ol>
+  </div>
+<div class="op-why"><div class="op-h">왜 배우나요?</div><div><p>AI가 어떻게 답을 만드는지 알면, <strong>언제 믿고 언제 확인해야 하는지</strong>가 저절로 보입니다. 원리를 아는 사람이 도구를 가장 안전하게 씁니다.</p></div></div>  <div class="op-hook">
+    <div class="op-h">생각 열기</div>
+    <div class="op-hook-q">다음 빈칸에 들어갈 말은 무엇일까요?  “동해물과 백두산이 ____”</div>
+<figure class="fig fig--chat">
+  <div class="fig-inner">
+<div class="win ">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화</span></div>
+  <div class="chat">
+  <div class="msg msg--user">
+<span class="msg-who">나</span>    <div class="msg-bubble"><p>동해물과 백두산이</p></div>
+  </div>
+  <div class="msg msg--ai">
+<span class="msg-who">AI</span>    <div class="msg-bubble"><p>마르고 닳도록, 하느님이 보우하사 우리나라 만세…</p></div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+</figure>
+  </div>
+  <div class="op-bottom">
+<div class="op-keys"><span class="op-h2">핵심 용어</span><span class="chip">대규모 언어 모델(LLM)</span><span class="chip">토큰</span><span class="chip">확률</span><span class="chip">환각</span><span class="chip">지식 시점</span><span class="chip">맥락 창</span></div><div class="op-map"><span class="op-h2">이 단원의 흐름</span><span class="op-map-step">다음 말 맞히기</span><span class="op-map-arrow">›</span><span class="op-map-step">학습과 대화</span><span class="op-map-arrow">›</span><span class="op-map-step">답이 달라지는 이유</span><span class="op-map-arrow">›</span><span class="op-map-step">꼭 알아야 할 한계</span></div>  </div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">1</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p2" data-page="2" data-type="concept" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">02-1</span>
+  <h2 class="sec-title">다음 말 맞히기 게임</h2>
+</div>
+
+<p class="para">여러분은 "동해물과 백두산이" 다음에 어떤 말이 올지 바로 압니다. 그 노래를 <strong>수없이 들었기 때문</strong>입니다. 생성형 AI도 이와 비슷한 방식으로 말을 만듭니다.</p>
+<p class="para">생성형 AI의 바탕에는 <strong>대규모 언어 모델(LLM)</strong>이 있습니다. 책·기사·웹 문서처럼 엄청난 양의 글을 읽고, 어떤 말 다음에 어떤 말이 자주 오는지를 익힌 프로그램입니다.</p>
+<figure class="fig fig--bar">
+  <div class="fig-inner">
+<div class="bars">
+  <div class="bar-row is-hl">
+    <span class="bar-label">좋네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span>
+    <span class="bar-val">52%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">덥네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:40.4%"></span></span>
+    <span class="bar-val">21%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">춥네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:28.8%"></span></span>
+    <span class="bar-val">15%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">이상하네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:13.5%"></span></span>
+    <span class="bar-val">7%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">기타</span>
+    <span class="bar-track"><span class="bar-fill" style="width:9.6%"></span></span>
+    <span class="bar-val">5%</span>
+  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그래프 2-1</span>“오늘 날씨가 정말 ___” 다음에 올 말의 확률 (설명을 위한 가상의 값)</figcaption></figure>
+
+<p class="para">AI는 앞 문장을 보고 다음 말 후보마다 <strong>확률</strong>을 매깁니다. 그중 하나를 골라 붙이고, 다시 다음 말을 고르는 일을 수백 번 되풀이해 긴 답을 완성합니다.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">생성형 AI가 글을 만드는 방법</div>  <div class="concept-body"><p>앞의 글을 보고 → <strong>다음에 올 말을 예측</strong>하고 → 하나를 골라 붙이기를 <strong>반복</strong>한다. AI는 "사실인지"가 아니라 <strong>"그럴듯한지"</strong>를 기준으로 말을 고른다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">대규모 언어 모델 (LLM)</div>  <div class="note-body"><p>Large Language Model. 아주 많은(Large) 글로 배운 언어(Language) 모델(Model). 대화형 AI의 '두뇌'에 해당한다.</p></div>
+</div>
+
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">토큰 (token)</div>  <div class="note-body"><p>AI가 글을 나누어 처리하는 작은 조각. 한국어는 대략 글자 1~2개가 1토큰이다. 이용량을 토큰으로 세기도 한다.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>휴대폰 자판의 <strong>추천 단어</strong> 기능을 떠올려 보세요. LLM은 그 기능을 엄청나게 키우고 다듬은 것과 비슷합니다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">2</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--example" id="p3" data-page="3" data-type="example" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--example">
+  <span class="kind-label">예제</span>
+<h2 class="kind-title">답을 그대로 믿어도 될까?</h2></div>
+
+<div class="example">
+  <div class="ex-head"><span class="ex-label">예제 1</span><span class="ex-title">도서관 휴관일 묻기</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+  <div class="ex-q"><p>김정숙 님이 AI에게 "우리 동네 ○○도서관 오늘 문 열어?"라고 물었더니, AI가 <strong>"네, 매주 월요일만 휴관합니다"</strong>라고 답했습니다. 이 답을 그대로 믿으면 안 되는 이유 두 가지를 쓰고, 확인 방법을 말해 보세요.</p></div>
+  <div class="ex-sol">
+    <div class="ex-sol-label">풀이</div>
+    <ol class="ex-steps"><li><strong>지식 시점</strong>: AI는 배운 시점 이후의 변화(임시 휴관, 운영 시간 변경)를 모를 수 있습니다.</li><li><strong>환각 가능성</strong>: 많은 도서관이 월요일에 쉰다는 '흔한 패턴'으로 그럴듯하게 답했을 수 있습니다.</li><li><strong>확인</strong>: 도서관 공식 홈페이지나 전화로 오늘 운영 여부를 직접 확인합니다.</li></ol>
+<div class="ex-answer"><span>답</span>지식 시점과 환각 때문에 틀릴 수 있다. 공식 홈페이지·전화로 확인한다.</div>  </div>
+<div class="ex-memo">지역 정보(영업시간·주소·전화번호)는 AI가 특히 자주 틀리는 영역!</div></div>
+
+<figure class="fig fig--tokens">
+  <div class="fig-inner">
+<div class="tokens">
+  <div class="tok-row"><span class="tok-step">1</span>
+<span class="tok">오늘</span>  </div>
+  <div class="tok-row"><span class="tok-step">2</span>
+<span class="tok">오늘</span><span class="tok tok--new">날씨가</span>  </div>
+  <div class="tok-row"><span class="tok-step">3</span>
+<span class="tok">오늘</span><span class="tok">날씨가</span><span class="tok tok--new">정말</span><span class="tok tok--q">좋네요?</span>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 2-2</span>낱말을 하나씩 붙여 가며 문장을 만드는 과정. 주황색이 새로 고른 말이다.</figcaption></figure>
+
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 1</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span><span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q"><p>같은 질문을 두 번 했더니 AI의 답 표현이 조금 달랐습니다. AI가 고장 난 것일까요? 한 문장으로 답해 보세요.</p></div>
+<div class="write-lines" style="--n:2"></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">3</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--exercises" id="p4" data-page="4" data-type="exercises" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--exercises">
+  <span class="kind-label">확인 문제</span>
+<h2 class="kind-title">2단원을 확인해 봅시다</h2></div>
+
+<ol class="exs">
+  <li class="exq exq--short">
+    <div class="exq-head"><span class="exq-no">01</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>빈칸에 알맞은 말을 쓰세요. "대규모 언어 모델은 앞의 글을 보고 다음에 올 <span class="blank"> 말 </span>을 예측하여 문장을 만든다."</p></div>
+<div class="write-lines" style="--n:1"></div>  </li>
+  <li class="exq exq--mc">
+    <div class="exq-head"><span class="exq-no">02</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>"환각(hallucination)"에 대한 설명으로 가장 알맞은 것은?</p></div>
+      <ol class="choices"><li><span class="ch-no">①</span>AI가 사람처럼 꿈을 꾸는 현상</li><li><span class="ch-no">②</span>그럴듯하지만 사실이 아닌 내용을 자신 있게 말하는 현상</li><li><span class="ch-no">③</span>AI가 질문을 이해하지 못해 답을 거부하는 현상</li><li><span class="ch-no">④</span>인터넷이 끊겨 답이 늦게 나오는 현상</li></ol>
+  </li>
+  <li class="exq exq--ox">
+    <div class="exq-head"><span class="exq-no">03</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>다음 설명이 맞으면 O, 틀리면 X에 표시하세요.</p></div>
+      <div class="ox-list"><div class="ox-row"><span class="ox-s">(ㄱ) AI는 학습한 시점 이후에 생긴 일도 항상 정확히 알고 있다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄴ) 같은 질문에도 AI의 답 표현은 매번 달라질 수 있다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄷ) AI가 자신 있게 말하면 사실이라고 믿어도 된다.</span><span class="ox-box">O · X</span></div></div>
+  </li>
+  <li class="exq exq--essay">
+    <div class="exq-head"><span class="exq-no">04</span><span class="lv" aria-label="난이도 3"><i class="on">★</i><i class="on">★</i><i class="on">★</i></span></div>
+    <div class="exq-q"><p>그래프 2-1을 보고, AI가 "좋네요"를 고를 가능성이 가장 높은 이유를 <strong>학습</strong>이라는 낱말을 넣어 설명하세요.</p></div>
+<div class="write-lines" style="--n:3"></div>  </li>
+</ol>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">4</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+</body>
+</html>

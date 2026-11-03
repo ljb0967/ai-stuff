@@ -1,0 +1,61 @@
+{
+ "fonts": [
+  "Pretendard",
+  "Black Han Sans",
+  "Nanum Pen Script"
+ ],
+ "pages": [
+  {
+   "no": 1,
+   "type": "opener",
+   "unit": "2",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 2,
+   "type": "concept",
+   "unit": "2",
+   "fill": 1,
+   "proseChars": 267,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 3,
+   "type": "example",
+   "unit": "2",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 4,
+   "type": "exercises",
+   "unit": "2",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  }
+ ],
+ "summary": {
+  "pages": 4,
+  "errors": 0,
+  "warnings": 0,
+  "rules": {
+   "minFontPt": 10.5,
+   "bodyFontPt": 13,
+   "maxProseChars": 800,
+   "warnSentenceChars": 100,
+   "minVisualsConcept": 1
+  }
+ }
+}

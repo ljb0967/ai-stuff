@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+reports/crossreview/*/inputs/
+dist/png/
+dist/*.meta.json
+design/candidates/*.meta.json

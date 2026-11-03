@@ -198,8 +198,20 @@ def norm_block(b) -> dict:
     return {"type": k, "text": v}
 
 
+class _Loader(yaml.SafeLoader):
+    """YAML 1.1의 yes/no/on/off → bool 변환을 끈다 (`no: 1` 키가 False가 되는 문제 방지)."""
+
+
+_Loader.yaml_implicit_resolvers = {
+    k: [(tag, rx) for tag, rx in v if tag != "tag:yaml.org,2002:bool"]
+    for k, v in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
+_Loader.add_implicit_resolver("tag:yaml.org,2002:bool", re.compile(r"^(?:true|True|TRUE|false|False|FALSE)$"),
+                              list("tTfF"))
+
+
 def load_doc(path: pathlib.Path) -> dict:
-    return yaml.safe_load(path.read_text(encoding="utf-8"))
+    return yaml.load(path.read_text(encoding="utf-8"), Loader=_Loader)
 
 
 class Book:
@@ -239,9 +251,18 @@ class Book:
             pg["no"] = i
 
 
+class Env(jinja2.Environment):
+    """YAML 원고의 키(items, keys 등)가 dict 메서드보다 먼저 보이도록 한다."""
+
+    def getattr(self, obj, attribute):
+        if isinstance(obj, dict) and attribute in obj:
+            return obj[attribute]
+        return super().getattr(obj, attribute)
+
+
 def make_env() -> jinja2.Environment:
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(TPL)), autoescape=False,
-                             trim_blocks=True, lstrip_blocks=True)
+    env = Env(loader=jinja2.FileSystemLoader(str(TPL)), autoescape=False,
+              trim_blocks=True, lstrip_blocks=True)
     env.filters["md"] = md_inline
     env.filters["mdb"] = md_block
     env.filters["svg"] = render_svg
