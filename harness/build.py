@@ -36,6 +36,7 @@ _INLINE = [
     (re.compile(r"\[y\]"), '<span class="dot dot-y" aria-label="노랑"></span>'),
     (re.compile(r"\[r\]"), '<span class="dot dot-r" aria-label="빨강"></span>'),
     (re.compile(r"\(\(([^()]+?)\)\)"), r'<span class="blank">\1</span>'),  # 빈칸 ((   ))
+    (re.compile(r"(?<![\d-])(\d{2,4}-\d{3,4}(?:-\d{4})?)(?![\d-])"), r'<span class="nowrap">\1</span>'),  # 전화번호 줄바꿈 금지
 ]
 
 

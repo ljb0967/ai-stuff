@@ -1,11 +1,11 @@
 # 작업 인수인계 (HANDOFF)
 
 > 새 세션은 **이 파일부터** 읽고 이어서 작업한다. 단계가 끝날 때마다 이 파일을 갱신한다.
-> 마지막 갱신: 2026-11-03 · 브랜치 `claude/ai-literacy-curriculum-tpah6j`
+> 마지막 갱신: 2026-11-03 (4차 반영 완료) · 브랜치 `claude/ai-literacy-curriculum-tpah6j`
 
 ## 0. 한 줄 요약
 
-AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시 교안**(4부 12단원 + 부록, **122쪽**)이 완성되었다. 3차 교차 검토(완성 페이지) 지적 39건을 **모두 반영**하고 자동 검증 **PASS**(오류 0·경고 0). 지금은 **4차: 수정 반영 확인 검토(round4-fixcheck)** 결과를 기다리는 중.
+AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시 교안**(4부 12단원 + 부록, **122쪽**)이 완성되었다. 3차 교차 검토 39건 반영 → 4차 반영 확인 검토(33/39 확인 + 나머지 직접 확인, 새 문제 3건 수정)까지 끝났고 자동 검증 **PASS**(오류 0·경고 0). **남은 것: GitHub 푸시(권한 문제), 외부 LLM(GPT·Gemini) 검토.**
 
 ## 1. 사용자 요구사항 (원문 요지)
 
@@ -26,7 +26,7 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 | 3. 디자인 시안·선정 | ✅ 완료 | `design/candidates/`(A·B·C), `design/evaluation.md`, **`design/DESIGN_SYSTEM.md`(고정 규칙)** |
 | 4. 하네스 | ✅ 완료 | `harness/build.py`, `render.mjs`, `check.py`, `report.py`, `verify.sh`, `crossreview/review.py` |
 | 5. 제작 | ✅ 초안 완료 | `textbook/src/*.yaml` → `dist/ai-literacy-workbook.pdf` (121쪽) |
-| 6. 검증 반복 | 🔄 **진행 중** | 자동 검증 PASS (`reports/verify/LATEST.md`). 3차 반영 완료, 4차 반영 확인 검토 중 ↓ |
+| 6. 검증 반복 | ✅ 1차 사이클 완료 | 자동 검증 PASS (`reports/verify/LATEST.md`). 교차 검토 4회 반영 ↓ |
 
 ### 교차 검토 이력
 
@@ -35,18 +35,19 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 | 1차 | 기획 문서 | 독립 리뷰어(별도 Claude 에이전트) | 71점 revise (critical 2, major 11, minor 5) | ✅ `docs/plan/revision_round1.md` (17건 수용, 1건 부분 수용) |
 | 2차 | 디자인 시안 3종 | 독립 리뷰어 | A 26 · C 25 · B 20 → **A 채택** | ✅ `design/evaluation.md` (지적 5건 반영) |
 | 3차 | 완성 페이지 p.1–46 / 47–84 / 85–121 | 독립 리뷰어 3명(구간별) | 72 · 74 · 71점, 모두 revise (critical 2, major 20) | ✅ 39건 반영 → `docs/plan/revision_round3.md` |
-| 4차 | 3차 반영 확인(바뀐 47쪽) | 독립 리뷰어 | ⏳ 결과 대기 | ⬜ `reports/crossreview/round4-fixcheck/independent-claude.md` 확인 → 미반영·NEW 항목 처리 |
+| 4차 | 3차 반영 확인(바뀐 47쪽) | 독립 리뷰어 | 80점, 33/39 확인 · 미반영 1 · 새 문제 minor 3 | ✅ `docs/plan/revision_round4.md` |
 
 > 외부 LLM(GPT·Gemini) 검토는 아직 **한 번도 실행되지 않았다**(키·네트워크 없음, 4장 참고). 결과를 지어내지 않았고, 각 회차 폴더에 `SKIPPED.md`와 수동 검토용 `packet/`이 있다.
 
 ## 3. 다음에 할 일 (우선순위 순)
 
-1. **4차 반영 확인 결과 처리**: `reports/crossreview/round4-fixcheck/independent-claude.md`를 읽고, "반영 안 됨"·"NEW" 항목을 원고에서 고친다. 반영표는 `docs/plan/revision_round4.md`로 남긴다. (파일이 없으면 리뷰어가 중간에 끝난 것 → `packet/`으로 다시 돌린다.)
-2. `bash harness/verify.sh --png` → **RESULT: PASS** 확인, 고친 페이지 PNG 확인.
-3. **GitHub 푸시**(4장 참고). 지금까지의 커밋은 로컬에만 있다.
-4. 외부 LLM 키가 생기면 **GPT·Gemini로 전체 재검토**:
+1. **GitHub 푸시** (4장 참고). 지금까지의 커밋은 로컬에만 있다. 권한이 고쳐지면 `git push -u origin claude/ai-literacy-curriculum-tpah6j`.
+   - 이 세션에서 끝내 푸시하지 못한 경우: 이 세션이 남긴 `ai-stuff.bundle`(git bundle)을 내려받아 내 컴퓨터에서 `git clone ai-stuff.bundle ai-stuff && cd ai-stuff && git push origin claude/ai-literacy-curriculum-tpah6j`.
+2. **외부 LLM 교차 검토(5차)**: 키가 생기면 GPT·Gemini로 전체를 다시 검토한다. 결과는 `docs/plan/revision_round5.md`에 반영표로 남긴다.
    `python harness/crossreview/review.py --rubric pages --pdf dist/ai-literacy-workbook.pdf --pages 1-46 --label gpt-r5a` (47-84, 85-122도 같은 방식)
-5. (선택) 강사용 지도안, 실습용 가상 자료(공문·설문 예시 파일), 흑백 인쇄 점검.
+   키 없이도 각 `reports/crossreview/*/packet/PROMPT.md`와 이미지를 ChatGPT·Gemini 웹에 붙여 수동 검토 가능.
+3. 원고를 고칠 때마다 `bash harness/verify.sh --png` → **RESULT: PASS** 확인.
+4. (선택) 강사용 지도안, 실습용 가상 자료(공문·설문 예시 파일), 흑백 인쇄 점검, 서비스 현황표(부록 C) 정기 갱신.
 
 ## 4. 알려진 문제와 해결 방법
 

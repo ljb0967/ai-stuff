@@ -391,3 +391,5 @@ th { font-weight: 700; }
 
 .worksheet--tall .ws-v { min-height: 27mm; }
 .worksheet--tall .ws-k small { display: block; font-weight: 500; font-size: 10.5pt; margin-top: 1mm; }
+
+.nowrap { white-space: nowrap; }
