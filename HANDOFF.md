@@ -34,13 +34,13 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 |---|---|---|---|---|
 | 1차 | 기획 문서 | 독립 리뷰어(별도 Claude 에이전트) | 71점 revise (critical 2, major 11, minor 5) | ✅ `docs/plan/revision_round1.md` (17건 수용, 1건 부분 수용) |
 | 2차 | 디자인 시안 3종 | 독립 리뷰어 | A 26 · C 25 · B 20 → **A 채택** | ✅ `design/evaluation.md` (지적 5건 반영) |
-| 3차 | 완성 페이지 p.1–46 / 47–84 / 85–121 | 독립 리뷰어 3명(구간별) | ⏳ 결과 대기 | ⬜ `reports/crossreview/round3-pages-r3a·r3b·r3c/independent-claude.md` 확인 후 반영 |
+| 3차 | 완성 페이지 p.1–46 / 47–84 / 85–121 | 독립 리뷰어 3명(구간별) | 72 · 74 · 71점, 모두 revise (critical 2, major 20) | 🔄 **반영 중** → `docs/plan/revision_round3.md` (항목별 ✅/⬜ 상태 표시) |
 
 > 외부 LLM(GPT·Gemini) 검토는 아직 **한 번도 실행되지 않았다**(키·네트워크 없음, 4장 참고). 결과를 지어내지 않았고, 각 회차 폴더에 `SKIPPED.md`와 수동 검토용 `packet/`이 있다.
 
 ## 3. 다음에 할 일 (우선순위 순)
 
-1. **3차 교차 검토 결과 반영**: `reports/crossreview/round3-pages-*/independent-claude.md`를 읽고 critical·major부터 원고(`textbook/src/*.yaml`)를 고친다. 반영표를 `docs/plan/revision_round3.md`로 남긴다. (리뷰 파일이 없으면 리뷰어가 중간에 끝난 것이므로 같은 packet으로 다시 돌린다.)
+1. **3차 교차 검토 반영 계속**: `docs/plan/revision_round3.md`에서 ⬜인 항목을 원고(`textbook/src/*.yaml`)에 반영하고 ✅로 바꾼다.
 2. `bash harness/verify.sh --png` 다시 실행하여 PASS를 확인하고, 고친 페이지 PNG(`dist/png/`)를 눈으로 확인한다. (지금 `dist/png/`의 표지 PNG는 표지 대비 수정 전 이미지라 다시 뽑아야 한다.)
 3. 반영 후 **4차 검토**(가능하면 외부 LLM): 키가 있으면 `python harness/crossreview/review.py --rubric pages --pdf dist/ai-literacy-workbook.pdf --pages 1-46 --label gpt-r4a` 처럼 실행.
 4. `docs/PROCESS_LOG.md`, 이 파일을 갱신하고 커밋·푸시.
