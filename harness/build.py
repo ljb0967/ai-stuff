@@ -45,7 +45,7 @@ def md_inline(text) -> str:
     s = html.escape(str(text).strip(), quote=False)
     for pat, rep in _INLINE:
         s = pat.sub(rep, s)
-    return s.replace("\n", "<br>").replace("&lt;br&gt;", "<br>")
+    return s.replace("\n", "<br>").replace("&lt;br&gt;", "<br>").replace("&lt;small&gt;", "<small>").replace("&lt;/small&gt;", "</small>")
 
 
 def md_block(text) -> str:

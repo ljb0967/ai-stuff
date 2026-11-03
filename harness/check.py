@@ -58,7 +58,7 @@ def check_doc(path: pathlib.Path, glossary_all: set[str]) -> list[dict]:
     types = [p.get("type", "concept") for p in pages]
     if unit:
         for t in REQUIRED_TYPES:
-            if t == "example" and "practice" in types:  # 따라 해 보기 페이지 안의 예제도 인정
+            if t == "example" and ("practice" in types or "project" in types):  # 따라 해 보기·프로젝트(모범 예시) 페이지도 인정
                 continue
             if t not in types:
                 add("error", "structure", f"'{t}' 페이지가 없음")

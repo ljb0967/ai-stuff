@@ -401,7 +401,7 @@
 {% macro prompt(b) %}
 <div class="prompt">
   <div class="prompt-label">{{ b.label or "이렇게 입력해 보세요" }}</div>
-  <div class="prompt-text">{{ b.text | mdb }}</div>
+  <div class="prompt-text">{{ b.text | md }}</div>
 </div>
 {% endmacro %}
 
@@ -428,7 +428,7 @@
 {% endmacro %}
 
 {% macro worksheet(b) %}
-<div class="worksheet">
+<div class="worksheet{% if b.tall %} worksheet--tall{% endif %}">
   {% if b.title %}<div class="ws-title">{{ b.title | md }}</div>{% endif %}
   {% for row in b.rows %}
   <div class="ws-row"><div class="ws-k">{{ row[0] | md }}</div><div class="ws-v">{% if row[1] %}{{ row[1] | md }}{% else %}<span class="ws-blank"></span>{% endif %}</div></div>

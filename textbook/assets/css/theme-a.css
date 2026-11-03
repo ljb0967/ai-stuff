@@ -243,3 +243,9 @@ table { border-top: 0.6mm solid var(--c-primary); }
 /* 진한 바탕(내 말풍선·강조 칸) 안의 강조 글씨는 흰색 + 밑줄로 */
 .msg--user strong, .flow-step.is-hl strong, .stair.is-hl strong, .rung--5 strong { color: #fff; text-decoration: underline; text-underline-offset: 0.8mm; }
 .msg--user mark { background: none; color: #ffd2b0; }
+
+/* 표지 위 흐름도: 남색 바탕에서도 잘 보이게 */
+.page--cover .flow-step { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); color: #fff; }
+.page--cover .flow-step.is-hl { background: var(--c-accent); border-color: var(--c-accent); }
+.page--cover .flow-no { color: #ffc49b; } .page--cover .flow-step.is-hl .flow-no { color: #fff; }
+.page--cover .flow-arrow { color: #ffc49b; }
