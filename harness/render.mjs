@@ -95,6 +95,12 @@ const report = await page.evaluate(({ RULES, PT }) => {
     // 4) 시각 자료
     const visuals = pg.querySelectorAll(".fig, .tbl, .win, .approval").length;
     if (type === "concept" && visuals < RULES.minVisualsConcept) issues.push({ level: "error", rule: "visual", detail: "개념 페이지에 도표·그림·표 없음" });
+    // 4-1) 크기가 정해진 그림 칸 안에서 글이 넘치는지
+    for (const box of pg.querySelectorAll(".stair, .flow-step, .mx-cell, .card, .rung, .dl-ev, .nest, .cmp, .msg-bubble, .tok")) {
+      if (box.scrollHeight > box.clientHeight + 2 || box.scrollWidth > box.clientWidth + 2) {
+        issues.push({ level: "error", rule: "box-overflow", detail: `${box.className} 칸 안의 글이 넘침: ${box.innerText.slice(0, 20)}` });
+      }
+    }
     // 5) 미정의 블록
     if (pg.querySelector(".unknown-block")) issues.push({ level: "error", rule: "unknown-block", detail: pg.querySelector(".unknown-block").textContent });
     // 6) 너무 빈 페이지

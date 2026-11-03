@@ -121,8 +121,8 @@ def svg_cycle(steps: list[dict], center: str = "", human: str | None = None) -> 
         for j, ln in enumerate(lines):
             parts.append(f'<text x="{cx}" y="{cy + (j - (len(lines)-1)/2) * 20 + 6:.1f}" class="svg-center">{html.escape(ln)}</text>')
     if human:
-        parts.append(f'<g class="svg-human"><rect x="{W-236}" y="{H-40}" width="232" height="36" rx="18"/>'
-                     f'<text x="{W-120}" y="{H-16}" class="svg-t2">{html.escape(human)}</text></g>')
+        parts.append(f'<g class="svg-human"><rect x="4" y="{H-40}" width="196" height="36" rx="18"/>'
+                     f'<text x="102" y="{H-16}" class="svg-t2">{html.escape(human)}</text></g>')
     parts.append("</svg>")
     return "".join(parts)
 
