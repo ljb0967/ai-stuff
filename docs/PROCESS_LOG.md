@@ -15,3 +15,6 @@
 | 4. 제작 | 2026-11-03 | `textbook/src/00_front.yaml` ~ `12_unit12.yaml`, `99_appendix.yaml` → `dist/ai-literacy-workbook.pdf` (A4 121쪽) | 앞부분 5쪽, 4부 12단원(단원당 7~10쪽), 부록 12쪽. 단원마다 제작 → 빌드 → 자동 검사 → PNG 육안 확인 반복 |
 | ✔ 하네스 ③ (제작 중 보강) | 2026-11-03 | `check.py`, `render.mjs` | 제작 중 발견한 결함을 검사 규칙으로 바꿈: YAML 쉼표 잘림(`yaml-split`, 실제 5건 발견), 표 칸 수, 객관식 선택지 수, 그림 칸 안 글 넘침(`box-overflow`), 진한 말풍선 속 강조 글씨 안 보임(CSS 수정) |
 | 5. 자동 검증 | 2026-11-03 | `reports/verify/LATEST.md` | 121쪽 · 원고 오류 0 · 레이아웃 오류 0 · 경고 0 (최소 글자 10.5pt 이상, 개념 페이지 줄글 800자 이하, 시각 자료 누락 0) |
+| ✔ 교차 검토 3차 (완성 페이지) | 2026-11-03 | `reports/crossreview/round3-pages-r3a·r3b·r3c/` | 독립 리뷰어 3명이 구간별 검토: 72·74·71점(revise). critical 2(부록 C 이용자 수 시점 혼용, '독립 에이전트' 표현), major 20, minor 선별 17 → **39건 반영** (`docs/plan/revision_round3.md`). 주요: 날짜·요일 오류, 새 대화·기억 기능 설명, 가족 암호 유출 위험, 딥페이크 처벌 범위, 승인 화면 풀이, 웹 검색 '항상 허용'과 프롬프트 인젝션 충돌, 상담 전화 구분 |
+| 6. 재검증 | 2026-11-03 | `reports/verify/LATEST.md` | 122쪽 PASS (정답 및 해설 6쪽으로 재배치). 표 C-1 쉼표 잘림을 `table-cols` 검사가 잡아 수정 |
+| ⏳ 교차 검토 4차 (반영 확인) | 2026-11-03 | `reports/crossreview/round4-fixcheck/` | 새 채점 기준 `rubrics/fixcheck.md`. 결과 대기 |

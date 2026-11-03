@@ -1,0 +1,1240 @@
+{
+ "fonts": [
+  "Pretendard",
+  "Noto Serif KR"
+ ],
+ "pages": [
+  {
+   "no": 1,
+   "type": "cover",
+   "unit": null,
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 2,
+   "type": "front",
+   "unit": null,
+   "fill": 0.85,
+   "proseChars": 500,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 3,
+   "type": "front",
+   "unit": null,
+   "fill": 0.93,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 4,
+   "type": "front",
+   "unit": null,
+   "fill": 0.88,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 5,
+   "type": "toc",
+   "unit": null,
+   "fill": 0.96,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 12,
+   "issues": []
+  },
+  {
+   "no": 6,
+   "type": "divider",
+   "unit": "1",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 14,
+   "issues": []
+  },
+  {
+   "no": 7,
+   "type": "opener",
+   "unit": "1",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 8,
+   "type": "concept",
+   "unit": "1",
+   "fill": 0.71,
+   "proseChars": 205,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 9,
+   "type": "concept",
+   "unit": "1",
+   "fill": 0.93,
+   "proseChars": 255,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 10,
+   "type": "concept",
+   "unit": "1",
+   "fill": 0.76,
+   "proseChars": 204,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 11,
+   "type": "example",
+   "unit": "1",
+   "fill": 0.93,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 12,
+   "type": "exercises",
+   "unit": "1",
+   "fill": 0.99,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 13,
+   "type": "summary",
+   "unit": "1",
+   "fill": 0.91,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 14,
+   "type": "opener",
+   "unit": "2",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 15,
+   "type": "concept",
+   "unit": "2",
+   "fill": 0.81,
+   "proseChars": 267,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 16,
+   "type": "concept",
+   "unit": "2",
+   "fill": 0.74,
+   "proseChars": 246,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 17,
+   "type": "concept",
+   "unit": "2",
+   "fill": 0.67,
+   "proseChars": 196,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 18,
+   "type": "concept",
+   "unit": "2",
+   "fill": 0.77,
+   "proseChars": 76,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 19,
+   "type": "example",
+   "unit": "2",
+   "fill": 0.9,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 20,
+   "type": "exercises",
+   "unit": "2",
+   "fill": 0.95,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 21,
+   "type": "summary",
+   "unit": "2",
+   "fill": 0.85,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 22,
+   "type": "divider",
+   "unit": "3",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 14,
+   "issues": []
+  },
+  {
+   "no": 23,
+   "type": "opener",
+   "unit": "3",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 24,
+   "type": "concept",
+   "unit": "3",
+   "fill": 0.82,
+   "proseChars": 79,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 25,
+   "type": "concept",
+   "unit": "3",
+   "fill": 0.7,
+   "proseChars": 188,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 26,
+   "type": "concept",
+   "unit": "3",
+   "fill": 0.9,
+   "proseChars": 77,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 27,
+   "type": "concept",
+   "unit": "3",
+   "fill": 0.85,
+   "proseChars": 215,
+   "visuals": 3,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 28,
+   "type": "practice",
+   "unit": "3",
+   "fill": 0.91,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 29,
+   "type": "exercises",
+   "unit": "3",
+   "fill": 0.99,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 30,
+   "type": "summary",
+   "unit": "3",
+   "fill": 0.72,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 31,
+   "type": "opener",
+   "unit": "4",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 32,
+   "type": "concept",
+   "unit": "4",
+   "fill": 0.93,
+   "proseChars": 119,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 33,
+   "type": "concept",
+   "unit": "4",
+   "fill": 0.95,
+   "proseChars": 105,
+   "visuals": 3,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 34,
+   "type": "concept",
+   "unit": "4",
+   "fill": 0.69,
+   "proseChars": 73,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 35,
+   "type": "concept",
+   "unit": "4",
+   "fill": 0.84,
+   "proseChars": 112,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 36,
+   "type": "example",
+   "unit": "4",
+   "fill": 0.95,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 37,
+   "type": "exercises",
+   "unit": "4",
+   "fill": 0.98,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 38,
+   "type": "summary",
+   "unit": "4",
+   "fill": 0.76,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 39,
+   "type": "opener",
+   "unit": "5",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 40,
+   "type": "concept",
+   "unit": "5",
+   "fill": 0.75,
+   "proseChars": 86,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 41,
+   "type": "concept",
+   "unit": "5",
+   "fill": 0.95,
+   "proseChars": 168,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 42,
+   "type": "concept",
+   "unit": "5",
+   "fill": 0.7,
+   "proseChars": 112,
+   "visuals": 3,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 43,
+   "type": "concept",
+   "unit": "5",
+   "fill": 0.76,
+   "proseChars": 119,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 44,
+   "type": "example",
+   "unit": "5",
+   "fill": 0.92,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 45,
+   "type": "exercises",
+   "unit": "5",
+   "fill": 0.97,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 46,
+   "type": "summary",
+   "unit": "5",
+   "fill": 0.71,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 47,
+   "type": "divider",
+   "unit": "6",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 14,
+   "issues": []
+  },
+  {
+   "no": 48,
+   "type": "opener",
+   "unit": "6",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 49,
+   "type": "concept",
+   "unit": "6",
+   "fill": 0.68,
+   "proseChars": 243,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 50,
+   "type": "concept",
+   "unit": "6",
+   "fill": 0.68,
+   "proseChars": 109,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 51,
+   "type": "concept",
+   "unit": "6",
+   "fill": 0.88,
+   "proseChars": 95,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 52,
+   "type": "concept",
+   "unit": "6",
+   "fill": 0.78,
+   "proseChars": 55,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 53,
+   "type": "example",
+   "unit": "6",
+   "fill": 0.94,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 54,
+   "type": "exercises",
+   "unit": "6",
+   "fill": 0.95,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 55,
+   "type": "summary",
+   "unit": "6",
+   "fill": 0.74,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 56,
+   "type": "opener",
+   "unit": "7",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 57,
+   "type": "concept",
+   "unit": "7",
+   "fill": 0.85,
+   "proseChars": 113,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 58,
+   "type": "concept",
+   "unit": "7",
+   "fill": 0.78,
+   "proseChars": 110,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 59,
+   "type": "concept",
+   "unit": "7",
+   "fill": 0.71,
+   "proseChars": 125,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 60,
+   "type": "concept",
+   "unit": "7",
+   "fill": 0.97,
+   "proseChars": 68,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 61,
+   "type": "concept",
+   "unit": "7",
+   "fill": 0.72,
+   "proseChars": 127,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 62,
+   "type": "example",
+   "unit": "7",
+   "fill": 0.96,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 63,
+   "type": "exercises",
+   "unit": "7",
+   "fill": 0.91,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 64,
+   "type": "summary",
+   "unit": "7",
+   "fill": 0.85,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 65,
+   "type": "divider",
+   "unit": "8",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 14,
+   "issues": []
+  },
+  {
+   "no": 66,
+   "type": "opener",
+   "unit": "8",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 67,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.79,
+   "proseChars": 121,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 68,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.83,
+   "proseChars": 189,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 69,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.88,
+   "proseChars": 256,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 70,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.69,
+   "proseChars": 93,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 71,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.74,
+   "proseChars": 109,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 72,
+   "type": "concept",
+   "unit": "8",
+   "fill": 0.77,
+   "proseChars": 108,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 73,
+   "type": "example",
+   "unit": "8",
+   "fill": 0.99,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 74,
+   "type": "exercises",
+   "unit": "8",
+   "fill": 0.92,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 75,
+   "type": "summary",
+   "unit": "8",
+   "fill": 0.81,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 76,
+   "type": "opener",
+   "unit": "9",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 77,
+   "type": "concept",
+   "unit": "9",
+   "fill": 0.84,
+   "proseChars": 113,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 78,
+   "type": "concept",
+   "unit": "9",
+   "fill": 0.77,
+   "proseChars": 97,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 79,
+   "type": "concept",
+   "unit": "9",
+   "fill": 0.74,
+   "proseChars": 244,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 80,
+   "type": "concept",
+   "unit": "9",
+   "fill": 0.74,
+   "proseChars": 72,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 81,
+   "type": "concept",
+   "unit": "9",
+   "fill": 0.78,
+   "proseChars": 96,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 82,
+   "type": "example",
+   "unit": "9",
+   "fill": 0.96,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 83,
+   "type": "exercises",
+   "unit": "9",
+   "fill": 0.86,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 84,
+   "type": "summary",
+   "unit": "9",
+   "fill": 0.74,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 85,
+   "type": "opener",
+   "unit": "10",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 86,
+   "type": "concept",
+   "unit": "10",
+   "fill": 0.84,
+   "proseChars": 240,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 87,
+   "type": "concept",
+   "unit": "10",
+   "fill": 0.68,
+   "proseChars": 88,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 88,
+   "type": "concept",
+   "unit": "10",
+   "fill": 0.79,
+   "proseChars": 194,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 89,
+   "type": "concept",
+   "unit": "10",
+   "fill": 0.95,
+   "proseChars": 100,
+   "visuals": 3,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 90,
+   "type": "concept",
+   "unit": "10",
+   "fill": 0.76,
+   "proseChars": 121,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 91,
+   "type": "example",
+   "unit": "10",
+   "fill": 0.96,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 92,
+   "type": "exercises",
+   "unit": "10",
+   "fill": 0.79,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 93,
+   "type": "summary",
+   "unit": "10",
+   "fill": 0.81,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 94,
+   "type": "opener",
+   "unit": "11",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 2,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 95,
+   "type": "concept",
+   "unit": "11",
+   "fill": 0.83,
+   "proseChars": 98,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 96,
+   "type": "concept",
+   "unit": "11",
+   "fill": 0.78,
+   "proseChars": 115,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 97,
+   "type": "concept",
+   "unit": "11",
+   "fill": 0.74,
+   "proseChars": 116,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 98,
+   "type": "concept",
+   "unit": "11",
+   "fill": 0.85,
+   "proseChars": 87,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 99,
+   "type": "concept",
+   "unit": "11",
+   "fill": 0.61,
+   "proseChars": 99,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 100,
+   "type": "example",
+   "unit": "11",
+   "fill": 0.87,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 101,
+   "type": "exercises",
+   "unit": "11",
+   "fill": 0.9,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 102,
+   "type": "summary",
+   "unit": "11",
+   "fill": 0.78,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 103,
+   "type": "opener",
+   "unit": "12",
+   "fill": 1,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 104,
+   "type": "concept",
+   "unit": "12",
+   "fill": 0.81,
+   "proseChars": 124,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 105,
+   "type": "project",
+   "unit": "12",
+   "fill": 0.84,
+   "proseChars": 48,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 106,
+   "type": "concept",
+   "unit": "12",
+   "fill": 0.79,
+   "proseChars": 83,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 107,
+   "type": "concept",
+   "unit": "12",
+   "fill": 0.89,
+   "proseChars": 0,
+   "visuals": 3,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 108,
+   "type": "concept",
+   "unit": "12",
+   "fill": 0.91,
+   "proseChars": 108,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 109,
+   "type": "exercises",
+   "unit": "12",
+   "fill": 0.86,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 11.5,
+   "issues": []
+  },
+  {
+   "no": 110,
+   "type": "summary",
+   "unit": "12",
+   "fill": 0.92,
+   "proseChars": 100,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 111,
+   "type": "front",
+   "unit": null,
+   "fill": 0.78,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 112,
+   "type": "front",
+   "unit": null,
+   "fill": 0.94,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 113,
+   "type": "front",
+   "unit": null,
+   "fill": 0.89,
+   "proseChars": 0,
+   "visuals": 1,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 114,
+   "type": "glossary",
+   "unit": null,
+   "fill": 0.83,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 115,
+   "type": "glossary",
+   "unit": null,
+   "fill": 0.89,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 116,
+   "type": "glossary",
+   "unit": null,
+   "fill": 0.66,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 117,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.66,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 118,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.63,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 119,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.53,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 120,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.58,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 121,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.59,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  },
+  {
+   "no": 122,
+   "type": "answers",
+   "unit": null,
+   "fill": 0.48,
+   "proseChars": 0,
+   "visuals": 0,
+   "minPt": 10.5,
+   "issues": []
+  }
+ ],
+ "summary": {
+  "pages": 122,
+  "errors": 0,
+  "warnings": 0,
+  "rules": {
+   "minFontPt": 10.5,
+   "bodyFontPt": 13,
+   "maxProseChars": 800,
+   "warnSentenceChars": 100,
+   "minVisualsConcept": 1
+  }
+ }
+}
