@@ -12,3 +12,6 @@
 | 3. 디자인 시안 | 2026-11-03 | `design/candidates/` (A·B·C 각 4쪽 PDF·PNG) | 같은 HTML + CSS만 다른 3종 → 공정 비교. 하네스 빌드·렌더 검사 통과(오류 0) |
 | ✔ 교차 검토 2차 (디자인) | 2026-11-03 | `reports/crossreview/round2-design/` | 독립 리뷰어 A 26 · B 20 · C 25 / 제작자 A 28 · B 24 · C 23 → **A 채택**. 지적 5건 반영(곁단 48mm, 메모 11.5pt, 별·막대 대비, 손글씨 제거, 컴포넌트 고정) → `design/DESIGN_SYSTEM.md` |
 | ✔ 하네스 ② | 2026-11-03 | `harness/build.py`, `render.mjs`, `check.py`, `report.py`, `verify.sh` | 원고 검사(정답·구조·주의 상자·약어·제품명) + 레이아웃 검사(넘침·최소 글자·줄글 분량·문장 길이·시각 자료·채움) |
+| 4. 제작 | 2026-11-03 | `textbook/src/00_front.yaml` ~ `12_unit12.yaml`, `99_appendix.yaml` → `dist/ai-literacy-workbook.pdf` (A4 121쪽) | 앞부분 5쪽, 4부 12단원(단원당 7~10쪽), 부록 12쪽. 단원마다 제작 → 빌드 → 자동 검사 → PNG 육안 확인 반복 |
+| ✔ 하네스 ③ (제작 중 보강) | 2026-11-03 | `check.py`, `render.mjs` | 제작 중 발견한 결함을 검사 규칙으로 바꿈: YAML 쉼표 잘림(`yaml-split`, 실제 5건 발견), 표 칸 수, 객관식 선택지 수, 그림 칸 안 글 넘침(`box-overflow`), 진한 말풍선 속 강조 글씨 안 보임(CSS 수정) |
+| 5. 자동 검증 | 2026-11-03 | `reports/verify/LATEST.md` | 121쪽 · 원고 오류 0 · 레이아웃 오류 0 · 경고 0 (최소 글자 10.5pt 이상, 개념 페이지 줄글 800자 이하, 시각 자료 누락 0) |

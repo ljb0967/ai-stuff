@@ -282,8 +282,8 @@
   <div class="cmp cmp--{{ loop.index }}">
     <div class="cmp-title">{{ side.title | md }}</div>
     {% if side.chat %}{{ fig_chat({"messages": side.chat, "title": side.wtitle, "input": none}) }}{% endif %}
-    {% if side.items %}<ul>{% for it in side.items %}<li>{{ it | md }}</li>{% endfor %}</ul>{% endif %}
     {% if side.body %}<div class="cmp-body">{{ side.body | mdb }}</div>{% endif %}
+    {% if side.items %}<ul>{% for it in side.items %}<li>{{ it | md }}</li>{% endfor %}</ul>{% endif %}
     {% if side.verdict %}<div class="cmp-verdict">{{ side.verdict | md }}</div>{% endif %}
   </div>
   {% if loop.first %}<div class="cmp-vs">{{ b.vs or "VS" }}</div>{% endif %}
