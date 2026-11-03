@@ -1,0 +1,1297 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>처음 배우는 AI 리터러시</title>
+<style>
+@font-face{font-family:"Pretendard";src:url("../textbook/assets/fonts/PretendardVariable.woff2") format("woff2");font-weight:45 920;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../textbook/assets/fonts/NotoSerifKR-500.woff2") format("woff2");font-weight:500;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../textbook/assets/fonts/NotoSerifKR-700.woff2") format("woff2");font-weight:700;font-display:block}
+@font-face{font-family:"Noto Serif KR";src:url("../textbook/assets/fonts/NotoSerifKR-900.woff2") format("woff2");font-weight:900;font-display:block}
+@font-face{font-family:"Black Han Sans";src:url("../textbook/assets/fonts/BlackHanSans.woff2") format("woff2");font-display:block}
+@font-face{font-family:"Nanum Pen Script";src:url("../textbook/assets/fonts/NanumPenScript.woff2") format("woff2");font-display:block}
+</style>
+<link rel="stylesheet" href="../textbook/assets/css/base.css">
+<link rel="stylesheet" href="../textbook/assets/css/theme-a.css">
+</head>
+<body class="theme-a">
+<section class="page page--cover" id="p1" data-page="1" data-type="cover">
+  <div class="body">
+    <div class="main">
+<div class="cover">
+  <div class="cover-top">AI LITERACY WORKBOOK · 개념부터 실전까지</div>
+  <h1 class="cover-title">처음 배우는<br>AI 리터러시</h1>
+  <p class="cover-sub">질문하기부터 에이전트에게 일 맡기기까지<br>— AI를 처음 만나는 어른을 위한 개념·예제·문제 —</p>
+  <div class="cover-art"><figure class="fig fig--flow">
+  <div class="fig-inner">
+<div class="flow flow--h">
+  <div class="flow-step">
+    <div class="flow-no">1부</div>
+    <div class="flow-title">AI와 친해지기</div>
+<div class="flow-desc">원리 이해</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">2부</div>
+    <div class="flow-title">AI와 대화하기</div>
+<div class="flow-desc">질문과 활용</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">3부</div>
+    <div class="flow-title">믿을 수 있게 쓰기</div>
+<div class="flow-desc">확인과 안전</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step is-hl">
+    <div class="flow-no">4부</div>
+    <div class="flow-title">AI에게 일 맡기기</div>
+<div class="flow-desc">에이전트 활용</div>  </div>
+</div>
+
+  </div>
+</figure>
+</div>
+  <div class="cover-bottom">4부 12단원 · 예제 · 따라 해 보기 · 확인 문제 · 정답 및 해설</div>
+</div>
+
+    </div>
+  </div>
+</section>
+<section class="page page--front" id="p2" data-page="2" data-type="front">
+  <header class="rh">
+    <span class="rh-part">처음 배우는 AI 리터러시</span>
+    <span class="rh-unit">이 책을 펴내며</span>
+  </header>
+  <div class="body">
+    <div class="main">
+      <div class="front-head"><h1 class="front-title">이 책을 펴내며</h1></div>
+
+<p class="lead">AI는 이제 "알아 두면 좋은 기술"이 아니라, 스마트폰처럼 <strong>생활의 기본 도구</strong>가 되었습니다.</p>
+<p class="para">그런데 많은 분이 이렇게 말씀하십니다. "써 보긴 했는데 뭘 물어야 할지 모르겠다", "틀린 말을 할까 봐 못 믿겠다", "에이전트라는 말은 들어 봤는데 무슨 뜻인지 모르겠다."</p>
+<p class="para">이 책은 바로 그런 분들을 위해 만들었습니다. AI에 대한 지식이 전혀 없어도 괜찮습니다. 고등학교 수학 문제집처럼 <strong>개념을 익히고, 예제로 확인하고, 문제로 다지는</strong> 순서를 따라가면 됩니다.</p>
+<p class="para">이 책의 마지막 목표는 여러분이 <strong>AI 에이전트에게 일을 맡기고, 그 결과를 스스로 검수할 수 있게</strong> 되는 것입니다. 에이전트는 코딩 없이 <strong>말로 일을 시키는 도구</strong>입니다. 그래서 늦게 시작해도 충분히 따라잡을 수 있습니다.</p>
+<div class="concept">
+  <div class="concept-tab">이 책이 끝까지 강조하는 한 가지</div>
+<div class="concept-title">AI는 도구이고, 마지막 판단과 책임은 사람에게 있습니다.</div>  <div class="concept-body"><p>AI는 빠르고 성실하지만 틀릴 수 있습니다. 그래서 이 책은 "잘 쓰는 법"과 함께 <strong>"확인하는 법"</strong>과 <strong>"맡기지 말아야 할 일"</strong>을 반드시 함께 가르칩니다.</p></div>
+</div>
+
+<div class="callout callout--info">
+  <div class="callout-label">참고한 기준</div>
+  <div class="callout-body"><ul><li>OECD·유럽연합집행위원회 「AI 리터러시 프레임워크」(2026) — AI와 관계 맺기 · 만들기 · 관리하기 · 설계 이해</li><li>UNESCO 「학생 AI 역량 프레임워크」(2024) — 이해 → 적용 → 창조의 3단계</li><li>이 책은 이 기준을 성인·중장년 학습자에 맞게 다시 짰습니다. 특히 에이전트를 <strong>관리하는 능력</strong>(무엇을 맡기고, 어떻게 감독할지)에 4부 전체를 썼습니다.</li></ul></div>
+</div>
+
+<p class="para">서비스 이름과 버튼 위치는 몇 달마다 바뀝니다. 그래서 이 책의 화면 그림은 특정 회사의 화면이 아니라 <strong>어느 서비스에서나 비슷한 모양을 정리한 그림</strong>입니다. 이 책에서 배우는 원리와 습관은 서비스가 바뀌어도 그대로 통합니다.</p>
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">2</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--front" id="p3" data-page="3" data-type="front">
+  <header class="rh">
+    <span class="rh-part">처음 배우는 AI 리터러시</span>
+    <span class="rh-unit">이 책의 구성과 활용법</span>
+  </header>
+  <div class="body">
+    <div class="main">
+      <div class="front-head"><h1 class="front-title">이 책의 구성과 활용법</h1><p class="front-sub">한 단원은 6~7쪽, 60~90분이면 공부할 수 있습니다.</p></div>
+
+<figure class="tbl">
+  <table>
+<colgroup><col style="width:24%"><col style="width:76%"></colgroup><thead><tr><th>이렇게 생겼어요</th><th>무엇을 하나요?</th></tr></thead>    <tbody><tr><td><strong>단원 도입</strong></td><td>학습 목표 3가지와 "왜 배우나요?", 생활 속 질문으로 단원을 시작합니다.</td></tr><tr><td><strong>개념 익히기</strong> <span class="kbd">02-1</span></td><td>한 쪽에 한 가지 개념만 다룹니다. 줄글 설명 아래에 그림·표가 있고, 오른쪽 <strong>곁단</strong>에는 어려운 낱말 풀이(용어)와 TIP이 있습니다.</td></tr><tr><td><strong>핵심 개념</strong> 상자</td><td>그 쪽에서 꼭 기억할 내용을 한두 문장으로 정리합니다. 시간이 없으면 이 상자만 읽어도 됩니다.</td></tr><tr><td><strong>⚠ 주의</strong> 상자</td><td>돈·개인정보·건강처럼 조심해야 할 점입니다. 단원마다 하나 이상 있습니다.</td></tr><tr><td><strong>예제</strong>와 <strong>풀이</strong></td><td>등장인물의 실제 생활 장면을 문제로 만들고, 풀이를 단계별로 보여 줍니다.</td></tr><tr><td><strong>유제</strong></td><td>예제와 비슷한 문제를 직접 풀어 봅니다. 정답은 책 뒤 <strong>정답 및 해설</strong>에 있습니다.</td></tr><tr><td><strong>따라 해 보기</strong></td><td>휴대폰이나 컴퓨터로 직접 해 보는 실습입니다. <strong>"이렇게 입력해 보세요"</strong> 상자의 글을 그대로 입력해도 됩니다.</td></tr><tr><td><strong>확인 문제</strong> ★★☆</td><td>단원을 마치고 푸는 문제입니다. 별이 많을수록 어렵습니다.</td></tr><tr><td><strong>단원 마무리</strong></td><td>핵심 정리, 흔한 오해와 진실, 스스로 점검하기 표로 단원을 마칩니다.</td></tr></tbody>
+  </table>
+</figure>
+
+<div class="callout callout--tip">
+  <div class="callout-label">TIP</div>
+  <div class="callout-body"><b class="callout-title">이렇게 공부하면 좋아요</b> <ol><li>개념 쪽은 <strong>소리 내어</strong> 읽어 보세요. 낯선 낱말은 곁단을 먼저 봅니다.</li><li>예제는 풀이를 가리고 먼저 생각해 본 뒤 확인합니다.</li><li><strong>따라 해 보기는 꼭 직접</strong> 해 보세요. AI는 써 볼수록 빨리 익숙해집니다.</li><li>스스로 점검하기에서 "다시"에 표시한 단원은 일주일 뒤 한 번 더 봅니다.</li></ol></div>
+</div>
+
+<div class="callout callout--warn">
+  <div class="callout-label">주의</div>
+  <div class="callout-body"><b class="callout-title">실습 전에 꼭 지켜 주세요.</b> <p>주민등록번호·계좌번호·카드번호·비밀번호는 <strong>어떤 AI에도 입력하지 않습니다.</strong> 자세한 내용은 3단원과 7단원에서 배웁니다.</p></div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">3</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--front" id="p4" data-page="4" data-type="front">
+  <header class="rh">
+    <span class="rh-part">처음 배우는 AI 리터러시</span>
+    <span class="rh-unit">함께 공부할 사람들</span>
+  </header>
+  <div class="body">
+    <div class="main">
+      <div class="front-head"><h1 class="front-title">함께 공부할 사람들</h1><p class="front-sub">이 책의 예제와 문제는 네 사람의 생활과 일에서 나옵니다.</p></div>
+
+<div class="personas">
+  <div class="persona"><div class="ps-face">👵</div><div class="ps-info"><div class="ps-name">김정숙 <small>62세 · 은퇴한 초등교사</small></div><div class="ps-desc">스마트폰 메신저와 동영상은 능숙하지만 AI는 뉴스로만 들었다. 동네 독서 모임 총무를 맡고 있다.</div><div class="ps-want">바라는 것: 독서 모임 운영, 손주와의 대화, 여행 계획</div></div></div>
+  <div class="persona"><div class="ps-face">👨‍🍳</div><div class="ps-info"><div class="ps-name">박영호 <small>55세 · 동네 빵집 사장</small></div><div class="ps-desc">컴퓨터로 표 계산 정도는 한다. 안내문·리뷰 답글·장부 정리에 저녁 시간을 다 쓴다.</div><div class="ps-want">바라는 것: 가게 홍보, 서류 작업 줄이기, 부모님 건강 정보 정리</div></div></div>
+  <div class="persona"><div class="ps-face">👩‍💼</div><div class="ps-info"><div class="ps-name">이수진 <small>45세 · 구청 행정직</small></div><div class="ps-desc">회사에서 AI 도구를 쓰라고 하는데 비전공자라 막막하다.</div><div class="ps-want">바라는 것: 보고서 초안, 회의록 요약, 반복 업무 맡기기</div></div></div>
+  <div class="persona"><div class="ps-face">🧑‍🎓</div><div class="ps-info"><div class="ps-name">최민호 <small>29세 · 인문계 취업 준비생</small></div><div class="ps-desc">대화형 AI에 질문은 해 봤지만 '에이전트'는 잘 모른다.</div><div class="ps-want">바라는 것: 채용 정보 조사, 자기소개서 다듬기, 출처 확인</div></div></div>
+</div>
+
+<figure class="fig fig--flow">
+  <div class="fig-inner">
+<div class="flow flow--h">
+  <div class="flow-step">
+    <div class="flow-no">1부 · 01~02</div>
+    <div class="flow-title">AI와 친해지기</div>
+<div class="flow-desc">AI가 무엇이고<br>어떻게 답을 만드는지</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">2부 · 03~05</div>
+    <div class="flow-title">AI와 대화하기</div>
+<div class="flow-desc">잘 묻고, 다듬고,<br>생활과 일에 쓰기</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">3부 · 06~07</div>
+    <div class="flow-title">믿을 수 있게 쓰기</div>
+<div class="flow-desc">답 확인하기,<br>개인정보·사기 피하기</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step is-hl">
+    <div class="flow-no">4부 · 08~12</div>
+    <div class="flow-title">AI에게 일 맡기기</div>
+<div class="flow-desc">에이전트에게 맡기고<br>감독·검수하기</div>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">학습 지도</span>12단원은 네 단계로 나뉩니다. 앞 단계를 익혀야 다음 단계가 쉬워집니다.</figcaption></figure>
+
+<div class="concept">
+  <div class="concept-tab">다 배우고 나면</div>
+<div class="concept-title">이런 일을 스스로 할 수 있게 됩니다.</div>  <div class="concept-body"><ul><li>원하는 결과가 나오도록 AI에게 <strong>구체적으로 요청</strong>하고, 마음에 들 때까지 <strong>고쳐 묻기</strong></li><li>AI의 답을 <strong>3단계로 확인</strong>하고, 개인정보·딥보이스 사기를 <strong>피하기</strong></li><li>에이전트에게 <strong>"심부름 6문"</strong>으로 일을 맡기고, <strong>권한을 최소로</strong> 정하고, 결과를 <strong>검수</strong>하기</li><li>반복되는 일을 <strong>나만의 AI 작업 루틴</strong>으로 만들기</li></ul></div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">4</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--toc" id="p5" data-page="5" data-type="toc">
+  <header class="rh">
+    <span class="rh-part">처음 배우는 AI 리터러시</span>
+    <span class="rh-unit">차례</span>
+  </header>
+  <div class="body">
+    <div class="main">
+<div class="front-head"><h1 class="front-title">차례</h1></div>
+<div class="toc">
+<div class="toc-part">PART 1  AI와 친해지기</div>
+<div class="toc-row"><span class="toc-no">01</span><span class="toc-title">AI, 이미 우리 곁에</span><span class="toc-dots"></span><span class="toc-page">7</span></div><div class="toc-row"><span class="toc-no">02</span><span class="toc-title">생성형 AI는 어떻게 말을 만들까</span><span class="toc-dots"></span><span class="toc-page">14</span></div><div class="toc-part">PART 2  AI와 대화하기</div>
+<div class="toc-row"><span class="toc-no">03</span><span class="toc-title">첫 대화 시작하기</span><span class="toc-dots"></span><span class="toc-page">23</span></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">5</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--divider" id="p6" data-page="6" data-type="divider" data-unit="1">
+  <div class="body">
+    <div class="main">
+<div class="divider">
+  <div class="dv-part">PART 1</div>
+  <h1 class="dv-title">AI와 친해지기</h1>
+  <p class="dv-sub">AI가 무엇이고, 생성형 AI가 어떻게 답을 만드는지 알아봅니다.</p>
+  <ul class="dv-units"><li><b>01</b> AI, 이미 우리 곁에</li><li><b>02</b> 생성형 AI는 어떻게 말을 만들까</li></ul>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">6</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--opener" id="p7" data-page="7" data-type="opener" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body">
+    <div class="main">
+<div class="op">
+  <div class="op-top">
+    <div class="op-unit"><span class="op-unit-label">UNIT</span><span class="op-unit-no">01</span></div>
+    <div class="op-titles">
+      <div class="op-part">PART 1 · AI와 친해지기</div>
+      <h1 class="op-title">AI, 이미 우리 곁에</h1>
+<p class="op-sub">매일 쓰고 있지만 잘 몰랐던 AI 찾기</p>    </div>
+  </div>
+  <div class="op-goals">
+    <div class="op-h">학습 목표</div>
+    <ol><li>생활 속에서 AI가 쓰이는 곳을 <strong>3가지 이상</strong> 찾을 수 있다.</li><li><strong>규칙을 정해 주는 프로그램</strong>과 <strong>예시로 배우는 AI</strong>의 차이를 설명할 수 있다.</li><li>AI·머신러닝·딥러닝·생성형 AI의 <strong>포함 관계</strong>를 그림으로 나타낼 수 있다.</li></ol>
+  </div>
+<div class="op-why"><div class="op-h">왜 배우나요?</div><div><p>AI는 먼 미래의 로봇이 아닙니다. 여러분은 <strong>오늘 아침에도 AI를 여러 번 썼습니다.</strong> 이미 쓰고 있는 AI를 알아보는 것이 AI 리터러시의 첫걸음입니다.</p></div></div>  <div class="op-hook">
+    <div class="op-h">생각 열기</div>
+    <div class="op-hook-q">오늘 아침부터 지금까지, 휴대폰이 여러분 대신 "판단"하거나 "추천"해 준 일이 있었나요?</div>
+<figure class="fig fig--chat">
+  <div class="fig-inner">
+<div class="win ">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화</span></div>
+  <div class="chat">
+  <div class="msg msg--user">
+<span class="msg-who">김정숙</span>    <div class="msg-bubble"><p>나는 AI 같은 거 안 써요. 어려워서요.</p></div>
+  </div>
+  <div class="msg msg--ai">
+<span class="msg-who">손주</span>    <div class="msg-bubble"><p>할머니, 아까 사진첩에서 '얼굴별 앨범' 보셨잖아요. 그것도 AI예요!</p></div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+</figure>
+  </div>
+  <div class="op-bottom">
+<div class="op-keys"><span class="op-h2">핵심 용어</span><span class="chip">인공지능(AI)</span><span class="chip">규칙형 프로그램</span><span class="chip">머신러닝</span><span class="chip">딥러닝</span><span class="chip">생성형 AI</span><span class="chip">데이터</span></div><div class="op-map"><span class="op-h2">이 단원의 흐름</span><span class="op-map-step">생활 속 AI 찾기</span><span class="op-map-arrow">›</span><span class="op-map-step">규칙형 vs 학습형</span><span class="op-map-arrow">›</span><span class="op-map-step">AI 가족 관계</span></div>  </div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">7</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p8" data-page="8" data-type="concept" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">01-1</span>
+  <h2 class="sec-title">AI는 이미 우리 하루 속에 있다</h2>
+</div>
+
+<p class="para"><strong>인공지능(AI)</strong>은 사람이 하던 <strong>판단·인식·예측·생성</strong> 같은 지적인 일을 컴퓨터가 하도록 만든 기술입니다. 이름은 거창하지만, 우리는 이미 하루에도 여러 번 AI를 씁니다.</p>
+<figure class="fig fig--dayline">
+  <div class="fig-inner">
+<div class="dayline">
+  <div class="dl-ev"><div class="dl-time">아침 7시</div><div class="dl-icon">🔓</div><div class="dl-title">얼굴로 휴대폰 잠금 풀기</div><div class="dl-ai">얼굴 인식</div></div>
+  <div class="dl-ev"><div class="dl-time">아침 8시</div><div class="dl-icon">🚗</div><div class="dl-title">내비게이션 도착 시간</div><div class="dl-ai">막히는 길 예측</div></div>
+  <div class="dl-ev"><div class="dl-time">낮 12시</div><div class="dl-icon">📩</div><div class="dl-title">스팸 문자 자동 분류</div><div class="dl-ai">사기 문자 판단</div></div>
+  <div class="dl-ev"><div class="dl-time">저녁 7시</div><div class="dl-icon">📺</div><div class="dl-title">동영상·쇼핑 추천</div><div class="dl-ai">좋아할 것 예측</div></div>
+  <div class="dl-ev"><div class="dl-time">밤 9시</div><div class="dl-icon">🗣️</div><div class="dl-title">"내일 날씨 알려 줘"</div><div class="dl-ai">말소리 알아듣기</div></div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 1-1</span>하루 일과 속 AI. 오른쪽 주황색 칸은 AI가 하는 일이다.</figcaption></figure>
+
+<p class="para">AI가 하는 일은 크게 네 가지로 나눌 수 있습니다. 얼굴·목소리를 <strong>알아보고(인식)</strong>, 앞으로 일어날 일을 <strong>내다보고(예측)</strong>, 좋아할 만한 것을 <strong>골라 주고(추천)</strong>, 글·그림을 새로 <strong>만들어 냅니다(생성)</strong>.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">인공지능(AI)이란?</div>  <div class="concept-body"><p>사람의 지적인 일(인식·예측·추천·생성)을 컴퓨터가 대신하도록 만든 기술. <strong>이미 생활 곳곳에 들어와 있다.</strong></p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">AI</div>  <div class="note-body"><p>Artificial Intelligence의 줄임말. '인공(사람이 만든) 지능'이라는 뜻이다.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>은행 앱이 "평소와 다른 해외 결제"를 막아 주는 것도 AI가 이상한 거래를 <strong>예측</strong>한 결과입니다.</p></div>
+</div>
+
+<div class="note note--fact">
+  <div class="note-label">알아 두기</div>
+  <div class="note-body"><p>이 책에서 주로 배우는 것은 네 가지 중 <strong>'생성'</strong>을 하는 AI와, 그 AI가 일을 직접 처리하는 <strong>에이전트</strong>입니다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">8</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p9" data-page="9" data-type="concept" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">01-2</span>
+  <h2 class="sec-title">규칙을 정해 주는 프로그램 vs 예시로 배우는 AI</h2>
+</div>
+
+<p class="para">컴퓨터에게 일을 시키는 방법은 두 가지가 있습니다. 하나는 사람이 <strong>"만약 ~이면 ~해라"</strong> 하는 규칙을 하나하나 써 주는 방법입니다. 엘리베이터는 버튼을 누르면 그 층으로 갑니다. 정해진 규칙대로만 움직입니다.</p>
+<p class="para">그런데 "고양이 사진 알아보기"는 규칙으로 쓰기 어렵습니다. 고양이는 색도, 자세도, 크기도 제각각이기 때문입니다. 그래서 사람이 <strong>고양이 사진을 수만 장 보여 주면</strong> 컴퓨터가 스스로 특징을 찾게 합니다. 이것이 <strong>머신러닝</strong>, 곧 예시로 배우는 AI입니다.</p>
+<figure class="fig fig--compare">
+  <div class="fig-inner">
+<div class="compare">
+  <div class="cmp cmp--1">
+    <div class="cmp-title">📖 규칙형 프로그램</div>
+<ul><li>사람이 규칙을 모두 써 준다</li><li>늘 같은 결과 → 예측하기 쉽다</li><li>규칙으로 못 쓰는 일은 못 한다</li><li>예: 엘리베이터, 계산기, 알람</li></ul><div class="cmp-verdict">요리책 그대로 만드는 요리</div>  </div>
+<div class="cmp-vs">VS</div>  <div class="cmp cmp--2">
+    <div class="cmp-title">👨‍🍳 예시로 배우는 AI (학습형)</div>
+<ul><li>사람이 예시(데이터)를 많이 보여 준다</li><li>스스로 패턴을 찾아 판단한다</li><li>처음 보는 것도 어느 정도 알아본다</li><li>예: 얼굴 인식, 스팸 걸러내기, 번역</li></ul><div class="cmp-verdict">수없이 맛보며 감을 익힌 요리사</div>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 1-2</span>규칙형은 요리책대로 만드는 요리, 학습형은 수없이 맛보며 감을 익힌 요리사와 비슷하다.</figcaption></figure>
+
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">학습형 AI의 특징</div>  <div class="concept-body"><p>정답 규칙을 외운 것이 아니라 <strong>예시에서 배운 패턴</strong>으로 판단한다. 그래서 처음 보는 것도 다룰 수 있지만, <strong>가끔 틀린다.</strong></p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">머신러닝 (기계 학습)</div>  <div class="note-body"><p>많은 예시를 보여 주면 컴퓨터가 스스로 패턴을 찾아 배우는 방식.</p></div>
+</div>
+
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">데이터</div>  <div class="note-body"><p>AI가 배우는 재료. 글, 사진, 숫자, 소리 모두 데이터가 될 수 있다.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>구별하는 질문 하나: "정답이 미리 정해진 규칙인가, 예시로 배운 감인가?"</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">9</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p10" data-page="10" data-type="concept" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">01-3</span>
+  <h2 class="sec-title">AI 가족 관계 한눈에 보기</h2>
+</div>
+
+<p class="para">AI라는 큰 울타리 안에 여러 기술이 들어 있습니다. 예시로 배우는 <strong>머신러닝</strong>, 그중에서도 뇌의 신경망을 본뜬 여러 층의 계산으로 배우는 <strong>딥러닝</strong>, 그리고 딥러닝으로 글·그림을 새로 만들어 내는 <strong>생성형 AI</strong>가 있습니다.</p>
+<figure class="fig fig--nested">
+  <div class="fig-inner">
+<div class="nest nest--0">
+  <div class="nest-h"><b>인공지능 (AI)</b><span>사람의 지적인 일을 하는 기술 전체</span></div>
+<div class="nest nest--1">
+  <div class="nest-h"><b>머신러닝</b><span>예시(데이터)로 배우는 AI</span></div>
+<div class="nest nest--2">
+  <div class="nest-h"><b>딥러닝</b><span>여러 층의 신경망으로 배움</span></div>
+<div class="nest nest--3 nest--core">
+  <div class="nest-h"><b>생성형 AI</b><span>새 글·그림을 만듦</span></div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 1-3</span>AI 가족 관계. 안쪽으로 갈수록 범위가 좁고 구체적이다.</figcaption></figure>
+
+<p class="para">대화형 AI 서비스는 맨 안쪽의 생성형 AI에 속합니다. 4부에서 배울 <strong>에이전트</strong>는 이 생성형 AI가 대화를 넘어 <strong>직접 일을 처리하도록</strong> 발전한 것입니다.</p>
+<div class="callout callout--warn">
+  <div class="callout-label">주의</div>
+  <div class="callout-body"><b class="callout-title">'AI 탑재' 광고에 주의하세요.</b> <p>단순한 자동 기능에도 'AI'라는 이름을 붙여 비싸게 파는 경우가 있습니다. <strong>"이 제품의 AI가 정확히 무엇을 알아보거나 예측하나요?"</strong>라고 물어보고 사세요.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">딥러닝</div>  <div class="note-body"><p>뇌 신경망을 본뜬 여러 층(Deep)의 계산 구조로 배우는 머신러닝.</p></div>
+</div>
+
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">생성형 AI</div>  <div class="note-body"><p>글·그림·소리 등 새로운 것을 만들어 내는(생성) AI.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">10</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--example" id="p11" data-page="11" data-type="example" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--example">
+  <span class="kind-label">예제</span>
+<h2 class="kind-title">어떤 것이 AI일까?</h2></div>
+
+<div class="example">
+  <div class="ex-head"><span class="ex-label">예제 1</span><span class="ex-title">학습형 AI 골라내기</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+  <div class="ex-q"><p>다음 중 <strong>예시로 배우는 AI(학습형)</strong>를 모두 고르세요. ① 매일 아침 7시에 울리는 알람　② 얼굴 인식 잠금　③ 계산기의 곱셈　④ 사진 속 얼굴로 앨범을 나누는 기능</p></div>
+  <div class="ex-sol">
+    <div class="ex-sol-label">풀이</div>
+    <ol class="ex-steps"><li><strong>기준 세우기</strong>: 정답이 미리 정해진 규칙인지, 예시로 배운 패턴인지 따져 봅니다.</li><li>① 알람과 ③ 곱셈은 사람이 정한 규칙(시각, 계산법)대로 움직입니다. → 규칙형</li><li>② 얼굴 인식과 ④ 얼굴별 앨범은 수많은 얼굴 사진으로 배운 패턴으로 알아봅니다. → 학습형</li></ol>
+<div class="ex-answer"><span>답</span>②, ④</div>  </div>
+<div class="ex-memo">같은 휴대폰 안에도 규칙형 기능과 학습형 AI가 섞여 있습니다.</div></div>
+
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 1</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span><span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q"><p>박영호 사장님 가게의 계산대(POS기) 기능입니다. 이 중 <strong>학습형 AI</strong>가 쓰였을 가능성이 가장 높은 것을 고르세요.</p></div>
+<ol class="choices"><li><span class="ch-no">①</span>바코드를 찍으면 가격이 나온다</li><li><span class="ch-no">②</span>카드를 꽂으면 결제된다</li><li><span class="ch-no">③</span>요일·날씨별 빵 판매량을 내다보고 생산량을 추천한다</li><li><span class="ch-no">④</span>영수증을 출력한다</li></ol></div>
+
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 2</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span><span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q"><p>이수진 주무관은 "민원 문자를 내용별로 자동 분류해 주는 AI"를 도입하려 합니다. 이 AI를 만들려면 무엇을 많이 준비해야 할까요? 한 문장으로 쓰세요.</p></div>
+<div class="write-lines" style="--n:2"></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">11</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--exercises" id="p12" data-page="12" data-type="exercises" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--exercises">
+  <span class="kind-label">확인 문제</span>
+<h2 class="kind-title">1단원을 확인해 봅시다</h2></div>
+
+<ol class="exs">
+  <li class="exq exq--ox">
+    <div class="exq-head"><span class="exq-no">01</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>맞으면 O, 틀리면 X에 표시하세요.</p></div>
+      <div class="ox-list"><div class="ox-row"><span class="ox-s">(ㄱ) AI는 로봇 안에만 들어 있다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄴ) 스팸 문자를 걸러 주는 기능에도 AI가 쓰인다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄷ) 학습형 AI는 예시를 보고 배우기 때문에 가끔 틀릴 수 있다.</span><span class="ox-box">O · X</span></div></div>
+  </li>
+  <li class="exq exq--match">
+    <div class="exq-head"><span class="exq-no">02</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>생활 속 기능과 AI가 하는 일을 알맞게 이으세요.</p></div>
+      <div class="match"><div class="match-row"><span class="match-l">ㄱ. 얼굴로 잠금 풀기</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">① 생성</span></div><div class="match-row"><span class="match-l">ㄴ. 동영상 추천</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">② 인식</span></div><div class="match-row"><span class="match-l">ㄷ. 도착 시간 알려 주기</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">③ 추천</span></div><div class="match-row"><span class="match-l">ㄹ. 요청하면 안내문 써 주기</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">④ 예측</span></div></div>
+  </li>
+  <li class="exq exq--short">
+    <div class="exq-head"><span class="exq-no">03</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>그림 1-3의 빈칸을 채우세요. 인공지능 ⊃ <span class="blank"> 머신러닝 </span> ⊃ 딥러닝 ⊃ <span class="blank"> 생성형 AI </span></p></div>
+  </li>
+  <li class="exq exq--mc">
+    <div class="exq-head"><span class="exq-no">04</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>규칙형 프로그램과 학습형 AI를 비교한 설명으로 <strong>옳지 않은</strong> 것은?</p></div>
+      <ol class="choices"><li><span class="ch-no">①</span>규칙형은 사람이 규칙을 모두 써 준다.</li><li><span class="ch-no">②</span>학습형은 예시(데이터)에서 패턴을 찾는다.</li><li><span class="ch-no">③</span>학습형은 처음 보는 사진도 어느 정도 알아볼 수 있다.</li><li><span class="ch-no">④</span>학습형은 규칙을 외웠기 때문에 절대 틀리지 않는다.</li></ol>
+  </li>
+  <li class="exq exq--essay">
+    <div class="exq-head"><span class="exq-no">05</span><span class="lv" aria-label="난이도 3"><i class="on">★</i><i class="on">★</i><i class="on">★</i></span></div>
+    <div class="exq-q"><p>오늘 하루 내가 쓴 AI를 <strong>3가지</strong> 적고, 각각 인식·예측·추천·생성 중 무엇을 했는지 쓰세요.</p></div>
+<div class="write-lines" style="--n:2"></div>  </li>
+</ol>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">12</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--summary" id="p13" data-page="13" data-type="summary" data-unit="1">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>01</b> AI, 이미 우리 곁에</span>
+  </header>
+<div class="thumb" style="--u:1">01</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--summary">
+  <span class="kind-label">단원 마무리</span>
+<h2 class="kind-title">1단원 정리</h2></div>
+
+<div class="summary">
+  <div class="sum-head">핵심 정리</div>
+  <ol><li><strong>AI</strong>는 사람의 지적인 일(인식·예측·추천·생성)을 컴퓨터가 하도록 만든 기술이며, 이미 생활 곳곳에 있다.</li><li><strong>규칙형 프로그램</strong>은 사람이 쓴 규칙대로, <strong>학습형 AI(머신러닝)</strong>는 예시에서 배운 패턴으로 판단한다.</li><li>AI ⊃ 머신러닝 ⊃ 딥러닝 ⊃ <strong>생성형 AI</strong>. 대화형 AI와 에이전트는 생성형 AI에 속한다.</li><li>학습형 AI는 처음 보는 것도 다룰 수 있지만 <strong>가끔 틀린다.</strong> 이 사실이 이 책 전체의 출발점이다.</li></ol>
+</div>
+
+<div class="myth">
+  <div class="myth-head">오해와 진실</div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>AI는 먼 미래의 기술이고 나와는 상관없다.</div>
+    <div class="myth-o"><span class="mk">진실</span>휴대폰 잠금·스팸 차단·추천처럼 하루에도 여러 번 쓰고 있다.</div>
+  </div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>'AI'가 붙은 제품은 다 똑똑하다.</div>
+    <div class="myth-o"><span class="mk">진실</span>단순 자동 기능에 이름만 붙인 경우도 있다. 무엇을 알아보거나 예측하는지 물어보자.</div>
+  </div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>나이가 많으면 AI를 배우기 어렵다.</div>
+    <div class="myth-o"><span class="mk">진실</span>에이전트는 코딩 없이 말로 일을 시키는 도구다. 지금 시작해도 충분하다.</div>
+  </div>
+</div>
+
+<div class="checklist">
+  <div class="ck-head"><span>스스로 점검하기</span><span class="ck-scale"><i>잘함</i><i>보통</i><i>다시</i></span></div>
+<div class="ck-row"><span class="ck-text">생활 속 AI를 3가지 이상 찾을 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">규칙형 프로그램과 학습형 AI의 차이를 예를 들어 말할 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">AI 가족 관계(AI ⊃ 머신러닝 ⊃ 딥러닝 ⊃ 생성형 AI)를 그릴 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">13</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--opener" id="p14" data-page="14" data-type="opener" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+<div class="op">
+  <div class="op-top">
+    <div class="op-unit"><span class="op-unit-label">UNIT</span><span class="op-unit-no">02</span></div>
+    <div class="op-titles">
+      <div class="op-part">PART 1 · AI와 친해지기</div>
+      <h1 class="op-title">생성형 AI는 어떻게 말을 만들까</h1>
+<p class="op-sub">그럴듯한 다음 말을 고르는 기계, 그래서 생기는 장점과 한계</p>    </div>
+  </div>
+  <div class="op-goals">
+    <div class="op-h">학습 목표</div>
+    <ol><li>생성형 AI가 <strong>"다음에 올 말을 예측"</strong>해 문장을 만든다는 것을 설명할 수 있다.</li><li>같은 질문에도 답이 <strong>매번 조금씩 다른 이유</strong>를 말할 수 있다.</li><li>생성형 AI의 <strong>한계 세 가지</strong>(환각, 지식 시점, 대화 기억 한계)를 예를 들어 설명할 수 있다.</li></ol>
+  </div>
+<div class="op-why"><div class="op-h">왜 배우나요?</div><div><p>AI가 어떻게 답을 만드는지 알면, <strong>언제 믿고 언제 확인해야 하는지</strong>가 저절로 보입니다. 원리를 아는 사람이 도구를 가장 안전하게 씁니다.</p></div></div>  <div class="op-hook">
+    <div class="op-h">생각 열기</div>
+    <div class="op-hook-q">다음 빈칸에 들어갈 말은 무엇일까요?  “동해물과 백두산이 ____”</div>
+<figure class="fig fig--chat">
+  <div class="fig-inner">
+<div class="win ">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화</span></div>
+  <div class="chat">
+  <div class="msg msg--user">
+<span class="msg-who">나</span>    <div class="msg-bubble"><p>동해물과 백두산이</p></div>
+  </div>
+  <div class="msg msg--ai">
+<span class="msg-who">AI</span>    <div class="msg-bubble"><p>마르고 닳도록, 하느님이 보우하사 우리나라 만세…</p></div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+</figure>
+  </div>
+  <div class="op-bottom">
+<div class="op-keys"><span class="op-h2">핵심 용어</span><span class="chip">대규모 언어 모델(LLM)</span><span class="chip">토큰</span><span class="chip">확률</span><span class="chip">환각</span><span class="chip">지식 시점</span><span class="chip">맥락 창</span></div><div class="op-map"><span class="op-h2">이 단원의 흐름</span><span class="op-map-step">다음 말 맞히기</span><span class="op-map-arrow">›</span><span class="op-map-step">학습에서 대화까지</span><span class="op-map-arrow">›</span><span class="op-map-step">답이 달라지는 이유</span><span class="op-map-arrow">›</span><span class="op-map-step">꼭 알아야 할 한계</span></div>  </div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">14</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p15" data-page="15" data-type="concept" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">02-1</span>
+  <h2 class="sec-title">다음 말 맞히기 게임</h2>
+</div>
+
+<p class="para">여러분은 "동해물과 백두산이" 다음에 어떤 말이 올지 바로 압니다. 그 노래를 <strong>수없이 들었기 때문</strong>입니다. 생성형 AI도 이와 비슷한 방식으로 말을 만듭니다.</p>
+<p class="para">생성형 AI의 바탕에는 <strong>대규모 언어 모델(LLM)</strong>이 있습니다. 책·기사·웹 문서처럼 엄청난 양의 글을 읽고, 어떤 말 다음에 어떤 말이 자주 오는지를 익힌 프로그램입니다.</p>
+<figure class="fig fig--bar">
+  <div class="fig-inner">
+<div class="bars">
+  <div class="bar-row is-hl">
+    <span class="bar-label">좋네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span>
+    <span class="bar-val">52%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">덥네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:40.4%"></span></span>
+    <span class="bar-val">21%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">춥네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:28.8%"></span></span>
+    <span class="bar-val">15%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">이상하네요</span>
+    <span class="bar-track"><span class="bar-fill" style="width:13.5%"></span></span>
+    <span class="bar-val">7%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">기타</span>
+    <span class="bar-track"><span class="bar-fill" style="width:9.6%"></span></span>
+    <span class="bar-val">5%</span>
+  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그래프 2-1</span>“오늘 날씨가 정말 ___” 다음에 올 말의 확률 (설명을 위한 가상의 값)</figcaption></figure>
+
+<p class="para">AI는 앞 문장을 보고 다음 말 후보마다 <strong>확률</strong>을 매깁니다. 그중 하나를 골라 붙이고, 다시 다음 말을 고르는 일을 수백 번 되풀이해 긴 답을 완성합니다.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">생성형 AI가 글을 만드는 방법</div>  <div class="concept-body"><p>앞의 글을 보고 → <strong>다음에 올 말을 예측</strong>하고 → 하나를 골라 붙이기를 <strong>반복</strong>한다. AI는 "사실인지"가 아니라 <strong>"그럴듯한지"</strong>를 기준으로 말을 고른다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">대규모 언어 모델 (LLM)</div>  <div class="note-body"><p>Large Language Model. 아주 많은 글로 배운 언어 모델. 대화형 AI의 '두뇌'에 해당한다.</p></div>
+</div>
+
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">토큰 (token)</div>  <div class="note-body"><p>AI가 글을 나누어 처리하는 작은 조각. 한국어는 대략 글자 1~2개가 1토큰이다.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>휴대폰 자판의 <strong>추천 단어</strong> 기능을 떠올려 보세요. LLM은 그 기능을 엄청나게 키우고 다듬은 것과 비슷합니다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">15</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p16" data-page="16" data-type="concept" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">02-2</span>
+  <h2 class="sec-title">배우고, 다듬고, 대화하기</h2>
+</div>
+
+<p class="para">대화형 AI는 하루아침에 만들어지지 않습니다. 먼저 엄청난 양의 글로 <strong>다음 말 맞히기</strong>를 배우고, 그다음 사람들의 평가를 받으며 <strong>도움이 되고 안전하게 답하는 법</strong>을 다듬습니다. 그 뒤에야 우리와 대화합니다.</p>
+<figure class="fig fig--flow">
+  <div class="fig-inner">
+<div class="flow flow--h">
+  <div class="flow-step">
+    <div class="flow-no">1</div>
+    <div class="flow-title">사전 학습</div>
+<div class="flow-desc">책·기사·웹 문서로<br>다음 말 예측 연습</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">2</div>
+    <div class="flow-title">다듬기</div>
+<div class="flow-desc">사람이 답을 평가하며<br>도움 되고 안전한 답 연습</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step is-hl">
+    <div class="flow-no">3</div>
+    <div class="flow-title">대화</div>
+<div class="flow-desc">우리가 쓴 질문을 보고<br>답을 만들어 냄</div>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 2-1</span>대화형 AI가 만들어지고 쓰이는 3단계</figcaption></figure>
+
+<p class="para">중요한 점은 AI가 읽은 글을 <strong>통째로 외워 두었다가 꺼내는 것이 아니라는</strong> 사실입니다. 글에서 배운 <strong>패턴</strong>으로 그때그때 새 문장을 만들어 냅니다. 그래서 처음 보는 질문에도 답할 수 있지만, 배운 적 없는 내용을 그럴듯하게 지어내기도 합니다.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">AI의 답은 '찾아온 것'이 아니라 '만들어 낸 것'</div>  <div class="concept-body"><p>생성형 AI는 기억 속 문서를 찾아 보여 주는 검색창과 다르다. 배운 패턴으로 <strong>새로 만든 문장</strong>이므로, 사실인지는 따로 확인해야 한다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--fact">
+  <div class="note-label">알아 두기</div>
+<div class="note-title">검색 기능이 켜져 있다면?</div>  <div class="note-body"><p>일부 서비스는 답하기 전에 인터넷을 검색해 참고합니다. 그래도 찾은 내용을 잘못 요약할 수 있어요. (6단원)</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>AI가 "제가 찾아보니"라고 말해도, 실제로 검색했는지는 화면의 <strong>출처 표시</strong>로 확인하세요.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">16</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p17" data-page="17" data-type="concept" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">02-3</span>
+  <h2 class="sec-title">같은 질문, 다른 답 — 고장일까?</h2>
+</div>
+
+<p class="para">같은 질문을 두 번 하면 AI의 답 표현이 조금씩 달라집니다. 고장이 아닙니다. 늘 확률 1등인 말만 고르면 답이 딱딱하고 반복적이 되기 때문에, <strong>확률에 따라 다른 후보도 고르도록</strong> 만들어져 있습니다.</p>
+<figure class="fig fig--tokens">
+  <div class="fig-inner">
+<div class="tokens">
+  <div class="tok-row"><span class="tok-step">1</span>
+<span class="tok">오늘</span>  </div>
+  <div class="tok-row"><span class="tok-step">2</span>
+<span class="tok">오늘</span><span class="tok tok--new">날씨가</span>  </div>
+  <div class="tok-row"><span class="tok-step">3</span>
+<span class="tok">오늘</span><span class="tok">날씨가</span><span class="tok tok--new">정말</span><span class="tok tok--q">좋네요? 덥네요?</span>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 2-2</span>낱말을 하나씩 붙여 가며 문장을 만드는 과정. 주황색이 새로 고른 말이고, 마지막 칸은 다음에 고를 차례다.</figcaption></figure>
+
+<p class="para">주사위를 다시 던지듯, 고르는 말이 하나만 달라져도 그 뒤 문장 전체가 달라집니다. 그래서 마음에 들지 않는 답은 <strong>다시 받아 보는 것</strong>도 좋은 방법입니다.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">답이 매번 다른 이유</div>  <div class="concept-body"><p>AI는 확률에 따라 다음 말을 <strong>조금씩 다르게 고른다.</strong> 표현이 달라지는 것은 정상이다. 다만 <strong>사실(숫자·날짜)이 답마다 다르면</strong> 그 내용은 믿기 어렵다는 신호다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+<div class="note-title">다시 받기 버튼</div>  <div class="note-body"><p>대부분의 서비스에는 답 아래에 <strong>↻(다시 생성)</strong> 버튼이 있습니다. 여러 번 받아 보고 마음에 드는 것을 고르세요.</p></div>
+</div>
+
+<div class="note note--warn">
+  <div class="note-label">주의</div>
+  <div class="note-body"><p>같은 질문에 날짜나 금액이 매번 다르게 나온다면, 그 숫자는 <strong>지어낸 것일 가능성</strong>이 큽니다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">17</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p18" data-page="18" data-type="concept" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">02-4</span>
+  <h2 class="sec-title">꼭 알아야 할 한계 세 가지</h2>
+</div>
+
+<p class="para">생성형 AI는 놀랍도록 말을 잘하지만, 원리상 피할 수 없는 약점이 있습니다. 이 세 가지만 알아도 AI에게 속을 일이 크게 줄어듭니다.</p>
+<figure class="tbl">
+  <table>
+<colgroup><col style="width:22%"><col style="width:40%"><col style="width:38%"></colgroup><thead><tr><th>한계</th><th>무슨 뜻인가요?</th><th>이렇게 대처해요</th></tr></thead>    <tbody><tr><td><strong>① 환각</strong><br>(hallucination)</td><td>그럴듯하지만 <strong>사실이 아닌 내용</strong>을 자신 있게 말한다. "그럴듯함"으로 말을 고르기 때문이다.</td><td>숫자·이름·출처는 <strong>직접 확인</strong>한다. (6단원)</td></tr><tr><td><strong>② 지식 시점</strong><br>(knowledge cutoff)</td><td>학습한 시점 <strong>이후의 일은 모르거나</strong> 틀린다. 바뀐 제도·가격·영업시간이 대표적이다.</td><td>"언제 기준이야?"라고 묻고, 최신 정보는 공식 홈페이지에서 본다.</td></tr><tr><td><strong>③ 대화 기억 한계</strong><br>(맥락 창)</td><td>한 대화에서 볼 수 있는 글의 양에 <strong>한도</strong>가 있다. 아주 길어지면 앞 내용을 놓친다. 새 대화는 이전 대화를 모른다.</td><td>중요한 조건은 <strong>다시 알려 주고</strong>, 주제가 바뀌면 새 대화를 연다.</td></tr></tbody>
+  </table>
+<figcaption><span class="fig-no">표 2-1</span>생성형 AI의 세 가지 한계와 대처법</figcaption></figure>
+
+<div class="callout callout--warn">
+  <div class="callout-label">주의</div>
+  <div class="callout-body"><b class="callout-title">말투가 자신 있다고 사실은 아닙니다.</b> <p>AI는 틀린 내용도 <strong>똑같이 친절하고 자신 있는 말투</strong>로 말합니다. 말투가 아니라 <strong>근거</strong>를 보고 판단하세요.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">환각</div>  <div class="note-body"><p>사실이 아닌 것을 그럴듯하게 지어내는 현상. "모르는 길도 자신 있게 알려 주는 친절한 행인"과 비슷하다.</p></div>
+</div>
+
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">맥락 창</div>  <div class="note-body"><p>AI가 한 번에 볼 수 있는 글의 양. 넘치면 앞부분이 흐려진다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">18</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--example" id="p19" data-page="19" data-type="example" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--example">
+  <span class="kind-label">예제</span>
+<h2 class="kind-title">답을 그대로 믿어도 될까?</h2></div>
+
+<div class="example">
+  <div class="ex-head"><span class="ex-label">예제 1</span><span class="ex-title">도서관 휴관일 묻기</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+  <div class="ex-q"><p>김정숙 님이 AI에게 "우리 동네 ○○도서관 오늘 문 열어?"라고 물었더니, AI가 <strong>"네, 매주 월요일만 휴관합니다"</strong>라고 답했습니다. 이 답을 그대로 믿으면 안 되는 이유 두 가지를 쓰고, 확인 방법을 말해 보세요.</p></div>
+  <div class="ex-sol">
+    <div class="ex-sol-label">풀이</div>
+    <ol class="ex-steps"><li><strong>지식 시점</strong>: AI는 배운 시점 이후의 변화(임시 휴관, 운영 시간 변경)를 모를 수 있습니다.</li><li><strong>환각 가능성</strong>: 많은 도서관이 월요일에 쉰다는 '흔한 패턴'으로 그럴듯하게 답했을 수 있습니다.</li><li><strong>확인</strong>: 도서관 공식 홈페이지나 전화로 오늘 운영 여부를 직접 확인합니다.</li></ol>
+<div class="ex-answer"><span>답</span>지식 시점과 환각 때문에 틀릴 수 있다. 공식 홈페이지·전화로 확인한다.</div>  </div>
+<div class="ex-memo">지역 정보(영업시간·주소·전화번호)는 AI가 특히 자주 틀리는 영역입니다.</div></div>
+
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 1</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span><span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q"><p>같은 질문을 두 번 했더니 AI의 답 표현이 조금 달랐습니다. AI가 고장 난 것일까요? 이유와 함께 한 문장으로 답해 보세요.</p></div>
+<div class="write-lines" style="--n:1"></div></div>
+
+<div class="similar">
+  <div class="sim-head"><span class="sim-label">유제 2</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span><span class="sim-ref">정답·해설 ▸ 부록</span></div>
+  <div class="sim-q"><p>박영호 사장님이 한 대화창에서 두 시간 동안 메뉴판·가격표·안내문을 계속 만들었더니, AI가 처음에 알려 준 "할인은 최대 20%" 조건을 잊고 30% 할인 안내문을 만들었습니다. 2-4의 세 가지 한계 중 무엇에 해당하고, 어떻게 하면 좋을까요?</p></div>
+<div class="write-lines" style="--n:2"></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">19</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--exercises" id="p20" data-page="20" data-type="exercises" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--exercises">
+  <span class="kind-label">확인 문제</span>
+<h2 class="kind-title">2단원을 확인해 봅시다</h2></div>
+
+<ol class="exs">
+  <li class="exq exq--short">
+    <div class="exq-head"><span class="exq-no">01</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>빈칸에 알맞은 말을 쓰세요. "대규모 언어 모델은 앞의 글을 보고 다음에 올 <span class="blank"> 말 </span>을 예측하여 문장을 만든다."</p></div>
+  </li>
+  <li class="exq exq--mc">
+    <div class="exq-head"><span class="exq-no">02</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>"환각(hallucination)"에 대한 설명으로 가장 알맞은 것은?</p></div>
+      <ol class="choices choices--cols2"><li><span class="ch-no">①</span>AI가 사람처럼 꿈을 꾸는 현상</li><li><span class="ch-no">②</span>사실이 아닌 내용을 그럴듯하게 말하는 현상</li><li><span class="ch-no">③</span>AI가 답을 거부하는 현상</li><li><span class="ch-no">④</span>인터넷이 끊겨 답이 늦는 현상</li></ol>
+  </li>
+  <li class="exq exq--ox">
+    <div class="exq-head"><span class="exq-no">03</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>다음 설명이 맞으면 O, 틀리면 X에 표시하세요.</p></div>
+      <div class="ox-list"><div class="ox-row"><span class="ox-s">(ㄱ) AI는 학습한 시점 이후에 생긴 일도 항상 정확히 알고 있다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄴ) AI의 답은 읽은 문서를 통째로 꺼내 보여 주는 것이다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄷ) AI가 자신 있게 말하면 사실이라고 믿어도 된다.</span><span class="ox-box">O · X</span></div></div>
+  </li>
+  <li class="exq exq--match">
+    <div class="exq-head"><span class="exq-no">04</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>상황과 관계있는 한계를 이으세요.</p></div>
+      <div class="match"><div class="match-row"><span class="match-l">ㄱ. 바뀐 버스 요금을 옛 요금으로 알려 줌</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">① 환각</span></div><div class="match-row"><span class="match-l">ㄴ. 있지도 않은 책 제목을 알려 줌</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">② 대화 기억 한계</span></div><div class="match-row"><span class="match-l">ㄷ. 긴 대화 끝에 처음 말한 조건을 잊음</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">③ 지식 시점</span></div></div>
+  </li>
+  <li class="exq exq--essay">
+    <div class="exq-head"><span class="exq-no">05</span><span class="lv" aria-label="난이도 3"><i class="on">★</i><i class="on">★</i><i class="on">★</i></span></div>
+    <div class="exq-q"><p>그래프 2-1을 보고, AI가 "좋네요"를 고를 가능성이 가장 높은 이유를 <strong>학습</strong>이라는 낱말을 넣어 설명하세요.</p></div>
+<div class="write-lines" style="--n:2"></div>  </li>
+</ol>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">20</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--summary" id="p21" data-page="21" data-type="summary" data-unit="2">
+  <header class="rh">
+    <span class="rh-part">PART 1 · AI와 친해지기</span>
+    <span class="rh-unit"><b>02</b> 생성형 AI는 어떻게 말을 만들까</span>
+  </header>
+<div class="thumb" style="--u:2">02</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--summary">
+  <span class="kind-label">단원 마무리</span>
+<h2 class="kind-title">2단원 정리</h2></div>
+
+<div class="summary">
+  <div class="sum-head">핵심 정리</div>
+  <ol><li>생성형 AI의 바탕은 <strong>대규모 언어 모델(LLM)</strong>이다. 앞의 글을 보고 <strong>다음에 올 말을 예측</strong>해 하나씩 붙여 문장을 만든다.</li><li>AI는 <strong>사전 학습 → 다듬기 → 대화</strong> 순서로 만들어지며, 답은 찾아온 것이 아니라 <strong>새로 만든 것</strong>이다.</li><li>확률에 따라 고르므로 <strong>답 표현은 매번 다를 수 있다.</strong> 하지만 숫자·날짜가 매번 다르면 의심한다.</li><li>꼭 알아야 할 한계 세 가지는 <strong>환각 · 지식 시점 · 대화 기억 한계</strong>다.</li></ol>
+</div>
+
+<div class="myth">
+  <div class="myth-head">오해와 진실</div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>AI가 답을 바꾸는 건 고장이다.</div>
+    <div class="myth-o"><span class="mk">진실</span>일부러 다양하게 고르도록 만든 것이다. 다시 받아 보는 것도 방법이다.</div>
+  </div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>AI는 인터넷의 최신 정보를 다 안다.</div>
+    <div class="myth-o"><span class="mk">진실</span>학습 시점 이후는 모를 수 있고</div>
+  </div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>자신 있게 말하면 맞는 말이다.</div>
+    <div class="myth-o"><span class="mk">진실</span>틀린 말도 같은 말투로 한다. 말투가 아니라 근거를 본다.</div>
+  </div>
+</div>
+
+<div class="checklist">
+  <div class="ck-head"><span>스스로 점검하기</span><span class="ck-scale"><i>잘함</i><i>보통</i><i>다시</i></span></div>
+<div class="ck-row"><span class="ck-text">"다음 말 예측"으로 AI가 글을 만드는 원리를 설명할 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">같은 질문에 답이 달라지는 이유를 말할 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">환각·지식 시점·대화 기억 한계를 예를 들어 설명할 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">21</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--divider" id="p22" data-page="22" data-type="divider" data-unit="3">
+  <div class="body">
+    <div class="main">
+<div class="divider">
+  <div class="dv-part">PART 2</div>
+  <h1 class="dv-title">AI와 대화하기</h1>
+  <p class="dv-sub">AI 서비스를 시작하고, 원하는 결과가 나오도록 요청하고 다듬습니다.</p>
+  <ul class="dv-units"><li><b>03</b> 첫 대화 시작하기</li><li><b>04</b> 잘 묻는 법: 프롬프트 기본기</li><li><b>05</b> 생활과 일에 AI 쓰기</li></ul>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">22</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--opener" id="p23" data-page="23" data-type="opener" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body">
+    <div class="main">
+<div class="op">
+  <div class="op-top">
+    <div class="op-unit"><span class="op-unit-label">UNIT</span><span class="op-unit-no">03</span></div>
+    <div class="op-titles">
+      <div class="op-part">PART 2 · AI와 대화하기</div>
+      <h1 class="op-title">첫 대화 시작하기</h1>
+<p class="op-sub">서비스 고르기부터 첫 질문, 이어서 묻기까지</p>    </div>
+  </div>
+  <div class="op-goals">
+    <div class="op-h">학습 목표</div>
+    <ol><li>대화형 AI 서비스를 고를 때 따져 볼 점 <strong>3가지</strong>를 말할 수 있다.</li><li>채팅 화면의 주요 부분(입력창, 보내기, 새 대화, 대화 목록, 첨부, 음성)을 <strong>찾을 수 있다.</strong></li><li>질문하기 → 이어서 묻기 → 새 대화 열기를 <strong>직접 해 볼 수 있다.</strong></li></ol>
+  </div>
+<div class="op-why"><div class="op-h">왜 배우나요?</div><div><p>처음이 가장 어렵습니다. 한 번 화면에 익숙해지면, 그다음부터는 <strong>평소 말하듯 물어보기만 하면</strong> 됩니다.</p></div></div>  <div class="op-hook">
+    <div class="op-h">생각 열기</div>
+    <div class="op-hook-q">처음 만난 AI에게 무엇이라고 말을 걸어 볼까요?</div>
+<figure class="fig fig--chat">
+  <div class="fig-inner">
+<div class="win ">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화</span></div>
+  <div class="chat">
+  <div class="msg msg--user">
+<span class="msg-who">나</span>    <div class="msg-bubble"><p>안녕하세요. 저는 60대이고 AI를 처음 써 봐요. 어떤 걸 물어보면 좋을까요?</p></div>
+  </div>
+  <div class="msg msg--ai">
+<span class="msg-who">AI</span>    <div class="msg-bubble"><p>반갑습니다! 예를 들어 ① 문자나 안내문 대신 써 주기 ② 긴 글을 짧게 요약하기 ③ 여행 계획 세우기 같은 걸 도와드릴 수 있어요.</p></div>
+  </div>
+</div>
+<div class="chat-input"><span class="chat-plus">＋</span><span class="chat-ph">여기에 질문을 입력하세요</span><span class="chat-mic">🎤</span><span class="chat-send">↑</span></div>
+</div>
+
+  </div>
+</figure>
+  </div>
+  <div class="op-bottom">
+<div class="op-keys"><span class="op-h2">핵심 용어</span><span class="chip">대화형 AI</span><span class="chip">무료·유료</span><span class="chip">2단계 인증</span><span class="chip">입력창</span><span class="chip">새 대화</span><span class="chip">이어서 묻기</span></div><div class="op-map"><span class="op-h2">이 단원의 흐름</span><span class="op-map-step">서비스 고르기</span><span class="op-map-arrow">›</span><span class="op-map-step">처음부터 지킬 3가지</span><span class="op-map-arrow">›</span><span class="op-map-step">화면 익히기</span><span class="op-map-arrow">›</span><span class="op-map-step">대화의 기본 동작</span></div>  </div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">23</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p24" data-page="24" data-type="concept" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">03-1</span>
+  <h2 class="sec-title">나에게 맞는 서비스 고르기</h2>
+</div>
+
+<p class="para">대화형 AI 서비스는 여러 회사에서 내놓고 있고, 이름과 기능은 자주 바뀝니다. 어느 것을 고르든 다음 세 가지를 따져 보면 실패가 적습니다.</p>
+<figure class="tbl">
+  <table>
+<colgroup><col style="width:26%"><col style="width:74%"></colgroup><thead><tr><th>기준</th><th>이렇게 확인해요</th></tr></thead>    <tbody><tr><td><strong>① 쓰기 편한가</strong></td><td>한국어로 자연스럽게 답하는지, 글씨 크기·음성 입력처럼 내게 필요한 기능이 있는지 직접 몇 번 물어봅니다.</td></tr><tr><td><strong>② 무료로 어디까지 되나</strong></td><td>무료는 하루 사용 횟수나 기능에 제한이 있습니다. 유료는 <strong>월 구독</strong>입니다. 무료로 충분히 써 본 뒤 결정합니다.</td></tr><tr><td><strong>③ 내 정보를 어떻게 다루나</strong></td><td>설정에서 <strong>대화 내용을 AI 학습에 쓰는지</strong>, 끌 수 있는지, 대화 기록을 지울 수 있는지 확인합니다.</td></tr></tbody>
+  </table>
+<figcaption><span class="fig-no">표 3-1</span>서비스 고르기 3가지 기준</figcaption></figure>
+
+<div class="callout callout--warn">
+  <div class="callout-label">주의</div>
+  <div class="callout-body"><b class="callout-title">가짜 앱을 조심하세요.</b> <p>앱 장터에는 유명 서비스와 이름·그림이 비슷한 <strong>가짜 앱</strong>이 있습니다. 내려받기 전에 <strong>개발사 이름</strong>과 내려받은 사람 수를 확인하고, 설치하자마자 결제를 요구하면 지웁니다.</p></div>
+</div>
+
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">처음엔 무료로, 하나만 깊게</div>  <div class="concept-body"><p>여러 서비스를 옮겨 다니기보다 <strong>하나를 골라 2~3주 꾸준히</strong> 써 보세요. 이 책에서 배우는 원리는 어느 서비스에서나 통합니다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">대화형 AI (챗봇)</div>  <div class="note-body"><p>글이나 말로 묻고 답하는 AI 서비스. 'chat(수다)'과 'bot(로봇)'을 합친 말.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>휴대폰 앱과 컴퓨터 웹사이트는 같은 계정으로 이어집니다. 휴대폰에서 시작한 대화를 컴퓨터에서 이어 볼 수 있어요.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">24</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p25" data-page="25" data-type="concept" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">03-2</span>
+  <h2 class="sec-title">시작하기 전에 꼭 지킬 3가지</h2>
+</div>
+
+<p class="para">가입은 이메일이나 기존 계정(포털·메신저 계정 등)으로 할 수 있습니다. 간단하지만, <strong>처음부터 지켜야 할 습관</strong>이 있습니다. 나중에 7단원에서 더 자세히 배우지만, 실습 전에 이 세 가지는 꼭 기억하세요.</p>
+<figure class="fig fig--cards">
+  <div class="fig-inner">
+<div class="cards" style="--cols:3">
+  <div class="card"><div class="card-key">1</div><div class="card-title">이것만은 입력 금지</div><div class="card-desc">주민등록번호·계좌번호·카드번호·비밀번호·인증번호</div><div class="card-ex">→ 어떤 AI에도, 어떤 이유로도</div></div>
+  <div class="card"><div class="card-key">2</div><div class="card-title">남의 정보는 가리기</div><div class="card-desc">가족·고객의 이름·전화번호·주소·진료 기록</div><div class="card-ex">→ 'A 고객', '김○○'처럼 바꿔서</div></div>
+  <div class="card"><div class="card-key">3</div><div class="card-title">설정 한 번 확인</div><div class="card-desc">대화를 학습에 쓰는 설정, 2단계 인증</div><div class="card-ex">→ 가입한 날 바로 확인</div></div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 3-1</span>첫날부터 지키는 안전 습관 3가지</figcaption></figure>
+
+<p class="para">비밀번호는 다른 사이트와 <strong>다르게</strong> 정하고, 가능하면 <strong>2단계 인증</strong>을 켭니다. 비밀번호가 새어 나가도 휴대폰 인증이 한 번 더 막아 줍니다.</p>
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">첫날의 약속</div>  <div class="concept-body"><p>AI에게는 <strong>"남에게 보여 줘도 괜찮은 내용"만</strong> 입력한다. 헷갈리면 넣지 않는다.</p></div>
+</div>
+
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">2단계 인증</div>  <div class="note-body"><p>비밀번호 + 휴대폰 인증번호처럼 두 번 확인하는 방법. '2차 인증'이라고도 한다.</p></div>
+</div>
+
+<div class="note note--warn">
+  <div class="note-label">주의</div>
+  <div class="note-body"><p>"AI 이용료 환불", "계정 정지"를 핑계로 <strong>인증번호를 묻는 문자</strong>는 사기입니다.</p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">25</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p26" data-page="26" data-type="concept" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">03-3</span>
+  <h2 class="sec-title">채팅 화면 익히기</h2>
+</div>
+
+<p class="para">서비스마다 모양은 조금씩 다르지만, 대화형 AI 화면은 대체로 아래 그림처럼 생겼습니다. 번호를 따라 내 화면에서 같은 버튼을 찾아보세요.</p>
+<figure class="fig fig--chatui">
+  <div class="fig-inner">
+<div class="chatui-wrap">
+<div class="win chatui">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화 서비스</span></div>
+  <div class="cu">
+  <div class="cu-side">
+    <div class="cu-new">✎ 새 대화 <span class="pin">②</span></div>
+    <div class="cu-hist-title">지난 대화 <span class="pin">①</span></div>
+    <div class="cu-hist">손주 생일 메시지</div><div class="cu-hist">제주 여행 계획</div><div class="cu-hist">혈압에 좋은 운동</div>
+    <div class="cu-set">⚙ 설정 <span class="pin">⑧</span></div>
+  </div>
+  <div class="cu-main">
+    <div class="cu-msgs"><span class="pin pin--l">③</span>
+      <div class="msg msg--user"><div class="msg-bubble">AI를 처음 써 봐요. 뭘 물어보면 좋을까요?</div></div>
+      <div class="msg msg--ai"><div class="msg-bubble">반갑습니다! 예를 들어 이런 걸 물어보실 수 있어요. ① 문자 대신 써 주기 ② 긴 글 요약…</div></div>
+    </div>
+    <div class="chat-input"><span class="chat-plus">＋<span class="pin">⑤</span></span><span class="chat-ph">여기에 질문을 입력하세요<span class="pin">④</span></span><span class="chat-mic">🎤<span class="pin">⑥</span></span><span class="chat-send">↑<span class="pin">⑦</span></span></div>
+  </div>
+</div>
+
+</div>
+<ol class="cu-legend"><li><span class="pin">①</span><strong>지난 대화</strong> 목록 — 예전 대화를 다시 열기</li><li><span class="pin">②</span><strong>새 대화</strong> — 새 주제를 시작할 때</li><li><span class="pin">③</span><strong>대화 창</strong> — 내 말(오른쪽)과 AI 답(왼쪽)</li><li><span class="pin">④</span><strong>입력창</strong> — 질문을 쓰는 곳</li><li><span class="pin">⑤</span><strong>첨부(＋)</strong> — 사진·파일 올리기</li><li><span class="pin">⑥</span><strong>음성(🎤)</strong> — 말로 입력하기</li><li><span class="pin">⑦</span><strong>보내기(↑)</strong> — 질문 보내기</li><li><span class="pin">⑧</span><strong>설정(⚙)</strong> — 계정·개인정보 설정</li></ol>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 3-2</span>대화형 AI 화면의 주요 부분 (여러 서비스의 공통 모양을 정리한 그림)</figcaption></figure>
+
+<div class="callout callout--tip">
+  <div class="callout-label">TIP</div>
+  <div class="callout-body"><b class="callout-title">휴대폰에서는 ①②⑧이 숨어 있어요.</b> <p>휴대폰 화면에서는 지난 대화·새 대화·설정이 왼쪽 위 <strong>☰(줄 세 개)</strong> 메뉴나 내 사진(프로필) 안에 들어 있는 경우가 많습니다.</p></div>
+</div>
+
+<div class="concept">
+  <div class="concept-tab">핵심 개념</div>
+<div class="concept-title">기억할 버튼은 세 개면 충분</div>  <div class="concept-body"><p><strong>입력창</strong>에 쓰고 → <strong>보내기</strong>를 누르고 → 주제가 바뀌면 <strong>새 대화</strong>. 나머지는 필요할 때 하나씩 익힌다.</p></div>
+</div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">26</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--concept" id="p27" data-page="27" data-type="concept" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body has-side">
+    <div class="main">
+      <div class="sec-head">
+  <span class="sec-no">03-4</span>
+  <h2 class="sec-title">대화의 기본 동작 세 가지</h2>
+</div>
+
+<p class="para">AI와의 대화는 사람과의 대화와 비슷합니다. 평소 말하듯 묻고, 부족하면 <strong>이어서 묻고</strong>, 주제가 바뀌면 <strong>새로 시작</strong>합니다. 맞춤법이 조금 틀려도 대부분 알아듣습니다.</p>
+<figure class="fig fig--flow">
+  <div class="fig-inner">
+<div class="flow flow--h">
+  <div class="flow-step">
+    <div class="flow-no">1</div>
+    <div class="flow-title">질문하기</div>
+<div class="flow-desc">평소 말하듯<br>문장으로 묻기</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step is-hl">
+    <div class="flow-no">2</div>
+    <div class="flow-title">이어서 묻기</div>
+<div class="flow-desc">"더 짧게", "두 번째 것<br>자세히"</div>  </div>
+<div class="flow-arrow" aria-hidden="true"></div>  <div class="flow-step">
+    <div class="flow-no">3</div>
+    <div class="flow-title">새 대화 열기</div>
+<div class="flow-desc">주제가 바뀌면<br>새로 시작</div>  </div>
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 3-3</span>대화의 기본 동작 세 가지</figcaption></figure>
+
+<figure class="fig fig--chat">
+  <div class="fig-inner">
+<div class="win ">
+  <div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">AI 대화</span></div>
+  <div class="chat">
+  <div class="msg msg--user">
+<span class="msg-who">나</span>    <div class="msg-bubble"><p>손주 생일 축하 문자 써 줘. 초등학교 2학년 남자아이야.</p></div>
+  </div>
+  <div class="msg msg--ai">
+<span class="msg-who">AI</span>    <div class="msg-bubble"><p>민준아, 생일 축하해! 🎂 씩씩하게 자라 줘서 할머니는 늘 고마워…</p></div>
+  </div>
+  <div class="msg msg--user">
+<span class="msg-who">나</span>    <div class="msg-bubble"><p>좋아. 조금 더 짧게, 공룡 이야기도 넣어 줘.</p></div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+<figcaption><span class="fig-no">그림 3-4</span>이어서 묻기의 예. 같은 대화 안에서는 AI가 앞의 내용을 기억한다.</figcaption></figure>
+
+<p class="para">같은 대화 안에서는 "그거", "두 번째 것"이라고만 해도 AI가 앞의 내용을 기억해 알아듣습니다. 하지만 <strong>새 대화에서는 이전 내용을 모릅니다.</strong></p>
+    </div>
+    <aside class="side">
+<div class="note note--term">
+  <div class="note-label">용어</div>
+<div class="note-title">새 대화</div>  <div class="note-body"><p>앞 대화와 섞이지 않게 처음부터 시작하는 창. 앞 대화의 조건이 엉뚱하게 끼어드는 것을 막는다.</p></div>
+</div>
+
+<div class="note note--tip">
+  <div class="note-label">TIP</div>
+  <div class="note-body"><p>마이크(🎤)를 누르고 말로 해도 됩니다. 타자가 불편할 때 편리해요. 다만 <strong>공공장소에서는 개인정보를 말하지 않습니다.</strong></p></div>
+</div>
+
+    </aside>
+  </div>
+  <footer class="folio"><span class="folio-no">27</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--practice" id="p28" data-page="28" data-type="practice" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--practice">
+  <span class="kind-label">따라 해 보기</span>
+<h2 class="kind-title">첫 대화를 해 봅시다</h2></div>
+
+<div class="steps">
+  <div class="step"><span class="step-no">1</span><div class="step-body">대화형 AI 앱을 열고 <strong>새 대화</strong>를 누릅니다.</div></div>
+  <div class="step"><span class="step-no">2</span><div class="step-body">입력창에 아래 문장을 그대로 쓰고 <strong>보내기</strong>를 누릅니다.<div class="prompt">
+  <div class="prompt-label">이렇게 입력해 보세요</div>
+  <div class="prompt-text"><p>안녕하세요. 저는 AI를 처음 써 봐요. 제가 일상에서 AI에게 도움받을 수 있는 일 5가지를 쉬운 말로 알려 주세요.</p></div>
+</div>
+</div></div>
+  <div class="step"><span class="step-no">3</span><div class="step-body">답이 오면 마음에 드는 번호를 골라 <strong>이어서 묻습니다.</strong><div class="prompt">
+  <div class="prompt-label">이렇게 입력해 보세요</div>
+  <div class="prompt-text"><p>그중 세 번째를 제 상황에 맞게 예를 들어 설명해 주세요.</p></div>
+</div>
+</div></div>
+  <div class="step"><span class="step-no">4</span><div class="step-body">어려운 낱말이 나오면 이렇게 고쳐 묻습니다.<div class="prompt">
+  <div class="prompt-label">이렇게 입력해 보세요</div>
+  <div class="prompt-text"><p>조금 더 쉬운 말로, 세 문장으로 다시 설명해 주세요.</p></div>
+</div>
+</div></div>
+  <div class="step"><span class="step-no">5</span><div class="step-body">이제 <strong>새 대화</strong>를 열고 전혀 다른 주제(오늘 저녁 메뉴 추천)를 물어봅니다.</div></div>
+</div>
+
+<div class="example">
+  <div class="ex-head"><span class="ex-label">예제 1</span><span class="ex-title">이어서 물을까, 새로 시작할까?</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+  <div class="ex-q"><p>김정숙 님이 손주 생일 문자를 만들던 대화창에서, 갑자기 <strong>혈압약 복용 시간</strong>이 궁금해졌습니다. 같은 대화에 이어서 물을까요, 새 대화를 열까요?</p></div>
+  <div class="ex-sol">
+    <div class="ex-sol-label">풀이</div>
+    <ol class="ex-steps"><li>생일 문자와 혈압약은 <strong>주제가 전혀 다릅니다.</strong></li><li>같은 대화에 이어서 물으면 앞의 내용(생일, 손주)이 섞여 답이 엉뚱해질 수 있습니다.</li></ol>
+<div class="ex-answer"><span>답</span>새 대화를 연다.</div>  </div>
+<div class="ex-memo">건강 질문의 답은 참고만 하고, 복용 시간은 꼭 약사·의사에게 확인하세요. (5단원)</div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">28</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--exercises" id="p29" data-page="29" data-type="exercises" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--exercises">
+  <span class="kind-label">확인 문제</span>
+<h2 class="kind-title">3단원을 확인해 봅시다</h2></div>
+
+<ol class="exs">
+  <li class="exq exq--match">
+    <div class="exq-head"><span class="exq-no">01</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>그림 3-2의 버튼과 하는 일을 알맞게 이으세요.</p></div>
+      <div class="match"><div class="match-row"><span class="match-l">ㄱ. 새 대화 버튼</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">① 사진·파일 올리기</span></div><div class="match-row"><span class="match-l">ㄴ. 첨부(＋) 버튼</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">② 새 주제 시작하기</span></div><div class="match-row"><span class="match-l">ㄷ. 음성(🎤) 버튼</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">③ 계정·개인정보 설정</span></div><div class="match-row"><span class="match-l">ㄹ. 설정(⚙) 버튼</span><span class="match-dot">•</span><span class="match-gap"></span><span class="match-dot">•</span><span class="match-r">④ 말로 입력하기</span></div></div>
+  </li>
+  <li class="exq exq--mc">
+    <div class="exq-head"><span class="exq-no">02</span><span class="lv" aria-label="난이도 1"><i class="on">★</i><i class="">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>AI에 입력해도 <strong>괜찮은</strong> 것은?</p></div>
+      <ol class="choices choices--cols2"><li><span class="ch-no">①</span>내 계좌번호</li><li><span class="ch-no">②</span>휴대폰 인증번호</li><li><span class="ch-no">③</span>김치찌개 끓이는 순서</li><li><span class="ch-no">④</span>친구의 주민등록번호</li></ol>
+  </li>
+  <li class="exq exq--ox">
+    <div class="exq-head"><span class="exq-no">03</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>맞으면 O, 틀리면 X에 표시하세요.</p></div>
+      <div class="ox-list"><div class="ox-row"><span class="ox-s">(ㄱ) 새 대화를 열면 AI는 바로 앞 대화의 내용을 기억하고 있다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄴ) 같은 대화 안에서는 "두 번째 것 자세히"처럼 짧게 이어서 물어도 된다.</span><span class="ox-box">O · X</span></div><div class="ox-row"><span class="ox-s">(ㄷ) 설치하자마자 결제를 요구하는 AI 앱은 일단 의심한다.</span><span class="ox-box">O · X</span></div></div>
+  </li>
+  <li class="exq exq--short">
+    <div class="exq-head"><span class="exq-no">04</span><span class="lv" aria-label="난이도 2"><i class="on">★</i><i class="on">★</i><i class="">★</i></span></div>
+    <div class="exq-q"><p>서비스를 고를 때 따져 볼 3가지 기준을 쓰세요.</p></div>
+<div class="write-lines" style="--n:1"></div>  </li>
+  <li class="exq exq--practice">
+    <div class="exq-head"><span class="exq-no">05</span><span class="lv" aria-label="난이도 3"><i class="on">★</i><i class="on">★</i><i class="on">★</i></span></div>
+    <div class="exq-q"><p>따라 해 보기의 순서대로 첫 대화를 하고, AI가 알려 준 도움받을 수 있는 일 5가지 중 <strong>내가 가장 해 보고 싶은 것</strong> 하나를 쓰세요.</p></div>
+<div class="write-lines" style="--n:1"></div><div class="done-check">☐ 직접 해 봤어요</div>  </li>
+</ol>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">29</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+<section class="page page--summary" id="p30" data-page="30" data-type="summary" data-unit="3">
+  <header class="rh">
+    <span class="rh-part">PART 2 · AI와 대화하기</span>
+    <span class="rh-unit"><b>03</b> 첫 대화 시작하기</span>
+  </header>
+<div class="thumb" style="--u:3">03</div>  <div class="body">
+    <div class="main">
+      <div class="kind-head kind-head--summary">
+  <span class="kind-label">단원 마무리</span>
+<h2 class="kind-title">3단원 정리</h2></div>
+
+<div class="summary">
+  <div class="sum-head">핵심 정리</div>
+  <ol><li>서비스는 <strong>쓰기 편한가 · 무료 범위 · 개인정보 처리</strong>로 고르고, 처음엔 무료로 하나를 꾸준히 쓴다.</li><li>첫날부터 <strong>입력 금지 정보</strong>(주민번호·계좌·카드·비밀번호·인증번호)를 지키고, 남의 정보는 가린다.</li><li>화면에서 꼭 알 버튼은 <strong>입력창 · 보내기 · 새 대화</strong> 세 가지다.</li><li>대화의 기본은 <strong>질문하기 → 이어서 묻기 → (주제가 바뀌면) 새 대화</strong>다.</li></ol>
+</div>
+
+<div class="myth">
+  <div class="myth-head">오해와 진실</div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>질문은 맞춤법을 정확히 지켜야 한다.</div>
+    <div class="myth-o"><span class="mk">진실</span>평소 말하듯 써도 대부분 알아듣는다.</div>
+  </div>
+  <div class="myth-row">
+    <div class="myth-x"><span class="mk">오해</span>한 번 물어서 안 되면 AI가 못 하는 것이다.</div>
+    <div class="myth-o"><span class="mk">진실</span>이어서 묻고 고쳐 묻는 것이 기본 사용법이다. (4단원)</div>
+  </div>
+</div>
+
+<div class="checklist">
+  <div class="ck-head"><span>스스로 점검하기</span><span class="ck-scale"><i>잘함</i><i>보통</i><i>다시</i></span></div>
+<div class="ck-row"><span class="ck-text">서비스를 고르는 3가지 기준을 말할 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">내 화면에서 입력창·보내기·새 대화·첨부·음성 버튼을 찾을 수 있다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div><div class="ck-row"><span class="ck-text">첫 대화를 하고, 이어서 묻고, 새 대화를 열어 보았다.</span><span class="ck-scale"><i>○</i><i>○</i><i>○</i></span></div></div>
+
+    </div>
+  </div>
+  <footer class="folio"><span class="folio-no">30</span><span class="folio-title">처음 배우는 AI 리터러시</span></footer>
+</section>
+</body>
+</html>

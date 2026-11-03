@@ -45,7 +45,7 @@ def md_inline(text) -> str:
     s = html.escape(str(text).strip(), quote=False)
     for pat, rep in _INLINE:
         s = pat.sub(rep, s)
-    return s.replace("\n", "<br>")
+    return s.replace("\n", "<br>").replace("&lt;br&gt;", "<br>")
 
 
 def md_block(text) -> str:
@@ -90,8 +90,8 @@ CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫"
 def svg_cycle(steps: list[dict], center: str = "", human: str | None = None) -> str:
     """에이전트 루프 같은 순환도. steps: [{title, desc}]"""
     n = len(steps)
-    W, H, cx, cy, R = 560, 340, 280, 170, 118
-    bw, bh = 150, 58
+    W, H, cx, cy, R = 600, 370, 300, 182, 126
+    bw, bh = 178, 66
     parts = [f'<svg viewBox="0 0 {W} {H}" class="svg-fig" role="img">',
              '<defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" '
              'orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="svg-arrowhead"/></marker></defs>']
@@ -114,60 +114,63 @@ def svg_cycle(steps: list[dict], center: str = "", human: str | None = None) -> 
                      f'class="svg-line" marker-end="url(#arr)"/>')
     for i, ((x, y), st) in enumerate(zip(pts, steps)):
         parts.append(f'<g class="svg-node"><rect x="{x-bw/2:.1f}" y="{y-bh/2:.1f}" width="{bw}" height="{bh}" rx="10"/>'
-                     f'<text x="{x:.1f}" y="{y-6:.1f}" class="svg-t1">{CIRCLED[i]} {html.escape(st["title"])}</text>'
-                     f'<text x="{x:.1f}" y="{y+15:.1f}" class="svg-t2">{html.escape(st.get("desc", ""))}</text></g>')
+                     f'<text x="{x:.1f}" y="{y-5:.1f}" class="svg-t1">{CIRCLED[i]} {html.escape(st["title"])}</text>'
+                     f'<text x="{x:.1f}" y="{y+19:.1f}" class="svg-t2">{html.escape(st.get("desc", ""))}</text></g>')
     if center:
         lines = center.split("\n")
         for j, ln in enumerate(lines):
             parts.append(f'<text x="{cx}" y="{cy + (j - (len(lines)-1)/2) * 20 + 6:.1f}" class="svg-center">{html.escape(ln)}</text>')
     if human:
-        parts.append(f'<g class="svg-human"><rect x="{W-150}" y="{H-36}" width="146" height="30" rx="15"/>'
-                     f'<text x="{W-77}" y="{H-16}" class="svg-t2">{html.escape(human)}</text></g>')
+        parts.append(f'<g class="svg-human"><rect x="{W-236}" y="{H-40}" width="232" height="36" rx="18"/>'
+                     f'<text x="{W-120}" y="{H-16}" class="svg-t2">{html.escape(human)}</text></g>')
     parts.append("</svg>")
     return "".join(parts)
 
 
 def svg_nested(rings: list[dict]) -> str:
     """포함 관계 동심 타원. rings: 바깥→안 [{label, desc}]"""
-    n = len(rings)
-    W, H = 560, 300
+    W, H = 600, 330
     parts = [f'<svg viewBox="0 0 {W} {H}" class="svg-fig" role="img">']
+    geo = [(300, 165, 296, 162), (352, 182, 238, 128), (404, 200, 180, 94), (452, 218, 124, 60)]
     for i, rg in enumerate(rings):
-        rx = 270 - i * 58
-        ry = 145 - i * 30
-        cx = 280 + i * 40
-        cy = 150 + i * 6
+        cx, cy, rx, ry = geo[i]
         parts.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" class="svg-ring svg-ring-{i}"/>')
-        ty = cy - ry + 26
-        parts.append(f'<text x="{cx - rx + 18 + i*4}" y="{ty}" class="svg-ring-label" text-anchor="start">{html.escape(rg["label"])}</text>')
+    for i, rg in enumerate(rings):
+        cx, cy, rx, ry = geo[i]
+        last = i == len(rings) - 1
+        x = cx if last else cx - rx + 30 + i * 4
+        anchor = "middle" if last else "start"
+        y = cy - 6 if last else cy - ry + 34
+        cls = " inv" if last else ""
+        parts.append(f'<text x="{x}" y="{y}" class="svg-ring-label{cls}" text-anchor="{anchor}">{html.escape(rg["label"])}</text>')
         if rg.get("desc"):
-            parts.append(f'<text x="{cx - rx + 18 + i*4}" y="{ty + 19}" class="svg-t2" text-anchor="start">{html.escape(rg["desc"])}</text>')
+            parts.append(f'<text x="{x}" y="{y + 24}" class="svg-t2{cls}" text-anchor="{anchor}">{html.escape(rg["desc"])}</text>')
     parts.append("</svg>")
     return "".join(parts)
 
 
 def svg_hub(center: str, nodes: list[str], caption_center: str = "") -> str:
     """가운데 허브(예: MCP)와 주변 서비스들."""
-    W, H, cx, cy = 560, 260, 280, 130
+    W, H, cx, cy = 600, 290, 300, 145
     n = len(nodes)
     parts = [f'<svg viewBox="0 0 {W} {H}" class="svg-fig" role="img">']
     pos = []
     for i in range(n):
         ang = math.pi + math.pi * (i + 0.5) / n if False else (2 * math.pi * i / n) - math.pi / 2
-        pos.append((cx + 210 * math.cos(ang), cy + 100 * math.sin(ang)))
+        pos.append((cx + 222 * math.cos(ang), cy + 112 * math.sin(ang)))
     for x, y in pos:
         parts.append(f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" class="svg-line"/>')
     for (x, y), label in zip(pos, nodes):
-        parts.append(f'<g class="svg-node"><rect x="{x-58:.1f}" y="{y-18:.1f}" width="116" height="36" rx="18"/>'
-                     f'<text x="{x:.1f}" y="{y+6:.1f}" class="svg-t1">{html.escape(label)}</text></g>')
-    parts.append(f'<g class="svg-hub"><rect x="{cx-70}" y="{cy-30}" width="140" height="60" rx="12"/>'
-                 f'<text x="{cx}" y="{cy-2}" class="svg-t1 inv">{html.escape(center)}</text>'
-                 f'<text x="{cx}" y="{cy+19}" class="svg-t2 inv">{html.escape(caption_center)}</text></g>')
+        parts.append(f'<g class="svg-node"><rect x="{x-70:.1f}" y="{y-21:.1f}" width="140" height="42" rx="21"/>'
+                     f'<text x="{x:.1f}" y="{y+7:.1f}" class="svg-t1">{html.escape(label)}</text></g>')
+    parts.append(f'<g class="svg-hub"><rect x="{cx-92}" y="{cy-36}" width="184" height="72" rx="12"/>'
+                 f'<text x="{cx}" y="{cy-4}" class="svg-t1 inv">{html.escape(center)}</text>'
+                 f'<text x="{cx}" y="{cy+22}" class="svg-t2 inv">{html.escape(caption_center)}</text></g>')
     parts.append("</svg>")
     return "".join(parts)
 
 
-SVG_FIGS = {"cycle", "nested", "hub"}
+SVG_FIGS = {"cycle", "hub"}
 
 
 def render_svg(fig: dict) -> str:
@@ -211,7 +214,12 @@ _Loader.add_implicit_resolver("tag:yaml.org,2002:bool", re.compile(r"^(?:true|Tr
 
 
 def load_doc(path: pathlib.Path) -> dict:
-    return yaml.load(path.read_text(encoding="utf-8"), Loader=_Loader)
+    try:
+        return yaml.load(path.read_text(encoding="utf-8"), Loader=_Loader)
+    except yaml.YAMLError as e:  # 원고 오류는 위치만 짧게 알려 준다
+        mark = getattr(e, "problem_mark", None)
+        where = f"{path.name}:{mark.line + 1}:{mark.column + 1}" if mark else path.name
+        sys.exit(f"YAML 오류 {where} — {getattr(e, 'problem', e)}")
 
 
 class Book:
@@ -222,6 +230,7 @@ class Book:
         self.answers: list[dict] = []
         self.toc: list[dict] = []
         self.glossary: list[dict] = []
+        self.toc_extra: list[dict] = []
         self.fig_counts: dict[str, int] = {}
 
     def paginate(self):
@@ -237,7 +246,10 @@ class Book:
                     self.toc.append({"unit": unit, "title": doc["title"], "part": doc.get("part"),
                                      "part_title": doc.get("part_title"), "page": len(self.pages)})
                 if pg.get("type") == "divider":
-                    self.toc.append({"divider": True, "title": pg.get("title"), "page": len(self.pages)})
+                    self.toc.append({"divider": True, "title": f"PART {pg.get('part')}  {pg.get('title')}",
+                                     "page": len(self.pages)})
+                if pg.get("toc_entry"):
+                    self.toc_extra.append({"title": pg["toc_entry"], "page": len(self.pages)})
                 for b in pg["blocks"]:
                     if b["type"] == "exercises":
                         for it in b["items"]:

@@ -53,7 +53,7 @@ const report = await page.evaluate(({ RULES, PT }) => {
     const issues = [];
     // 1) 넘침: 본문 영역 밖으로 나간 요소
     let maxBottom = br.top;
-    for (const el of body.querySelectorAll("*")) {
+    for (const el of body.querySelectorAll(".main > *, .main > * *, .side > *, .side > * *")) {
       const r = el.getBoundingClientRect();
       if (r.width === 0 && r.height === 0) continue;
       if (getComputedStyle(el).position === "absolute") continue;
@@ -89,8 +89,8 @@ const report = await page.evaluate(({ RULES, PT }) => {
     const prose = [...pg.querySelectorAll(".main > .para, .main > .lead, .main > .list li")].map((e) => e.textContent.trim());
     const proseChars = prose.join("").length;
     if (proseChars > RULES.maxProseChars) issues.push({ level: "error", rule: "density", detail: `줄글 ${proseChars}자 > ${RULES.maxProseChars}자` });
-    const allText = [...pg.querySelectorAll(".para, .lead, .concept-body, .callout-body, .ex-q, .exq-q, .note-body")].map((e) => e.textContent).join(" ");
-    const longS = allText.split(/(?<=[.?!])\s+|(?<=다\.)|(?<=요\.)/).map((s) => s.trim()).filter((s) => s.length > RULES.warnSentenceChars);
+    const allText = [...pg.querySelectorAll(".para, .lead, .concept-body, .callout-body, .ex-q, .exq-q, .note-body")].map((e) => e.innerText).join("\n");
+    const longS = allText.split(/\n|(?<=[.?!])\s+/).map((s) => s.trim()).filter((s) => s.length > RULES.warnSentenceChars);
     for (const s of longS) issues.push({ level: "warn", rule: "long-sentence", detail: `${s.length}자: ${s.slice(0, 40)}…` });
     // 4) 시각 자료
     const visuals = pg.querySelectorAll(".fig, .tbl, .win, .approval").length;

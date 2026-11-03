@@ -108,6 +108,7 @@
   {% elif b.kind == "compare" %}{{ fig_compare(b) }}
   {% elif b.kind == "cards" %}{{ fig_cards(b) }}
   {% elif b.kind == "dayline" %}{{ fig_dayline(b) }}
+  {% elif b.kind == "nested" %}{{ fig_nested(b.rings, 0) }}
   {% elif b.kind == "redact" %}{{ fig_redact(b) }}
   {% elif b.kind == "decompose" %}{{ fig_decompose(b) }}
   {% elif b.kind == "image" %}<img src="{{ b.src }}" alt="{{ b.alt or b.caption }}">
@@ -195,22 +196,22 @@
 {% call window("AI 대화 서비스", "chatui") %}
 <div class="cu">
   <div class="cu-side">
-    <div class="cu-new">✎ 새 대화 <span class="pin">②</span></div>
-    <div class="cu-hist-title">지난 대화 <span class="pin">①</span></div>
+    <div class="cu-new">✎ 새 대화 <span class="pin">2</span></div>
+    <div class="cu-hist-title">지난 대화 <span class="pin">1</span></div>
     <div class="cu-hist">손주 생일 메시지</div><div class="cu-hist">제주 여행 계획</div><div class="cu-hist">혈압에 좋은 운동</div>
-    <div class="cu-set">⚙ 설정 <span class="pin">⑧</span></div>
+    <div class="cu-set">⚙ 설정 <span class="pin">8</span></div>
   </div>
   <div class="cu-main">
-    <div class="cu-msgs"><span class="pin pin--l">③</span>
+    <div class="cu-msgs"><span class="pin pin--l">3</span>
       <div class="msg msg--user"><div class="msg-bubble">AI를 처음 써 봐요. 뭘 물어보면 좋을까요?</div></div>
       <div class="msg msg--ai"><div class="msg-bubble">반갑습니다! 예를 들어 이런 걸 물어보실 수 있어요. ① 문자 대신 써 주기 ② 긴 글 요약…</div></div>
     </div>
-    <div class="chat-input"><span class="chat-plus">＋<span class="pin">⑤</span></span><span class="chat-ph">여기에 질문을 입력하세요<span class="pin">④</span></span><span class="chat-mic">🎤<span class="pin">⑥</span></span><span class="chat-send">↑<span class="pin">⑦</span></span></div>
+    <div class="chat-input"><span class="chat-plus">＋<span class="pin">5</span></span><span class="chat-ph">여기에 질문을 입력하세요<span class="pin">4</span></span><span class="chat-mic">🎤<span class="pin">6</span></span><span class="chat-send">↑<span class="pin">7</span></span></div>
   </div>
 </div>
 {% endcall %}
 {% if b.legend %}
-<ol class="cu-legend">{% for it in b.legend %}<li><span class="pin">{{ CIRCLED[loop.index0] }}</span>{{ it | md }}</li>{% endfor %}</ol>
+<ol class="cu-legend">{% for it in b.legend %}<li><span class="pin">{{ loop.index }}</span>{{ it | md }}</li>{% endfor %}</ol>
 {% endif %}
 </div>
 {% endmacro %}
@@ -295,6 +296,13 @@
 {% for it in b.items %}
   <div class="card"><div class="card-key">{{ it.key }}</div><div class="card-title">{{ it.title | md }}</div><div class="card-desc">{{ it.desc | md }}</div>{% if it.ex %}<div class="card-ex">{{ it.ex | md }}</div>{% endif %}</div>
 {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro fig_nested(rings, i) %}
+<div class="nest nest--{{ i }}{% if i == rings|length - 1 %} nest--core{% endif %}">
+  <div class="nest-h"><b>{{ rings[i].label | md }}</b>{% if rings[i].desc %}<span>{{ rings[i].desc | md }}</span>{% endif %}</div>
+  {% if i + 1 < rings|length %}{{ fig_nested(rings, i + 1) }}{% endif %}
 </div>
 {% endmacro %}
 
