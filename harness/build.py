@@ -267,8 +267,11 @@ class Env(jinja2.Environment):
     """YAML 원고의 키(items, keys 등)가 dict 메서드보다 먼저 보이도록 한다."""
 
     def getattr(self, obj, attribute):
-        if isinstance(obj, dict) and attribute in obj:
-            return obj[attribute]
+        if isinstance(obj, dict):
+            if attribute in obj:
+                return obj[attribute]
+            if attribute != "get":  # 없는 키는 dict 메서드(items 등)가 아니라 '없음'으로 본다
+                return self.undefined(obj=obj, name=attribute)
         return super().getattr(obj, attribute)
 
 

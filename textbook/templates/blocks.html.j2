@@ -182,7 +182,7 @@
 {% for m in b.messages %}
   <div class="msg msg--{{ m.who }}">
     {% if m.who in ["user", "ai", "agent"] %}<span class="msg-who">{{ m.name or {"user":"나", "ai":"AI", "agent":"에이전트"}[m.who] }}</span>{% endif %}
-    <div class="msg-bubble">{{ m.text | mdb }}</div>
+    <div class="msg-bubble">{{ m.text | md }}</div>
     {% if m.mark %}<span class="msg-mark">{{ m.mark }}</span>{% endif %}
   </div>
 {% endfor %}

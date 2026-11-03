@@ -78,8 +78,19 @@ def check_doc(path: pathlib.Path, glossary_all: set[str]) -> list[dict]:
             if b["type"] == "exercises":
                 for it in b["items"]:
                     ex_nos.append(it.get("no"))
+                    if it.get("kind") == "mc" and len(it.get("choices") or []) not in (4, 5):
+                        add("error", "choices", f"p{pi} 문제 {it.get('no')} 선택지 {len(it.get('choices') or [])}개 (쉼표로 쪼개졌는지 확인)")
                     if not it.get("answer"):
                         add("error", "answer", f"p{pi} 확인 문제 {it.get('no')} 정답 없음")
+            if b["type"] == "table" and b.get("head"):
+                for r in b.get("rows", []):
+                    if len(r) != len(b["head"]):
+                        add("error", "table-cols", f"p{pi} 표 '{b.get('label', '')}' 행 칸 수 {len(r)} ≠ 머리 {len(b['head'])}: {str(r[0])[:20]}")
+            if b["type"] == "exercises":
+                for it in b["items"]:
+                    for pr in it.get("pairs") or []:
+                        if len(pr) != 2:
+                            add("error", "pair", f"p{pi} 문제 {it.get('no')} 짝짓기 항목 칸 수 {len(pr)}: {pr}")
             if b["type"] == "similar" and not b.get("answer"):
                 add("error", "answer", f"p{pi} 유제 {b.get('no')} 정답 없음")
             for key in ("label",):
@@ -93,6 +104,18 @@ def check_doc(path: pathlib.Path, glossary_all: set[str]) -> list[dict]:
     if ex_nos and ex_nos != list(range(1, len(ex_nos) + 1)):
         add("error", "numbering", f"확인 문제 번호 {ex_nos}")
 
+    # 흐름식 매핑 { a: x, b: y } 안의 쉼표 때문에 문장이 잘려 '값 없는 키'가 생긴 경우를 잡는다
+    def find_split(obj, path="") :
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if v is None and isinstance(k, str) and (" " in k or any("가" <= ch <= "힣" for ch in k)):
+                    add("error", "yaml-split", f"{path} 쉼표로 잘린 문장 의심: '{k[:30]}' (따옴표로 감싸세요)")
+                find_split(v, f"{path}/{k}")
+        elif isinstance(obj, list):
+            for i, v in enumerate(obj):
+                find_split(v, f"{path}[{i}]")
+    find_split(doc)
+
     text = "\n".join(walk_text(doc))
     for ac in ACRONYMS:
         if ac in ACRONYM_SELF_EVIDENT:
@@ -100,14 +123,15 @@ def check_doc(path: pathlib.Path, glossary_all: set[str]) -> list[dict]:
         if re.search(rf"(?<![A-Za-z]){ac}(?![A-Za-z])", text):
             if not any(ac in t for t in term_titles | glossary_all):
                 add("warn", "terms", f"약어 '{ac}' 풀이(용어 메모·용어집) 없음")
-    for prod in PRODUCTS:
+    for prod in ([] if path.name.startswith("99_") else PRODUCTS):  # 부록의 서비스 현황표는 예외
         for m in re.finditer(re.escape(prod), text):
             ctx = text[max(0, m.start() - 80): m.end() + 80]
             if not any(c in ctx for c in PRODUCT_OK_CONTEXT):
                 add("warn", "product", f"제품명 '{prod}' 사용: …{ctx[60:140].strip()}…")
                 break
+    surnames = set("김이박최정강조윤장임한오서신권황안송류전홍고문양손배백허유남심노하곽성차주우구민진나지엄채원천방공현함변염여추도소석선설마길연위표명기반왕금옥육인맹제모탁국어은편용예봉경사부")
     for name in re.findall(r"([가-힣]{3}) ?(?:님|사장님|주무관|씨)", text):
-        if name not in PERSONAS and name not in ("선생님",):
+        if name[0] in surnames and name not in PERSONAS and name not in ("선생님", "손주가", "손님이"):
             add("warn", "persona", f"등장인물 목록에 없는 이름 '{name}'")
     return out
 

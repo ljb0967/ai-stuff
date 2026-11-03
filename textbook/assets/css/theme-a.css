@@ -239,3 +239,7 @@ table { border-top: 0.6mm solid var(--c-primary); }
 .nest--0 { background: #f5f7fb; } .nest--1 { background: #e6ecf6; } .nest--2 { background: #d3ddee; }
 .nest-h b { color: var(--c-primary); } .nest-h span { color: var(--c-ink-2); }
 .nest--core { background: var(--c-primary); } .nest--core .nest-h b, .nest--core .nest-h span { color: #fff; }
+
+/* 진한 바탕(내 말풍선·강조 칸) 안의 강조 글씨는 흰색 + 밑줄로 */
+.msg--user strong, .flow-step.is-hl strong, .stair.is-hl strong, .rung--5 strong { color: #fff; text-decoration: underline; text-underline-offset: 0.8mm; }
+.msg--user mark { background: none; color: #ffd2b0; }
