@@ -36,6 +36,7 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 | 2차 | 디자인 시안 3종 | 독립 리뷰어 | A 26 · C 25 · B 20 → **A 채택** | ✅ `design/evaluation.md` (지적 5건 반영) |
 | 3차 | 완성 페이지 p.1–46 / 47–84 / 85–121 | 독립 리뷰어 3명(구간별) | 72 · 74 · 71점, 모두 revise (critical 2, major 20) | ✅ 39건 반영 → `docs/plan/revision_round3.md` |
 | 4차 | 3차 반영 확인(바뀐 47쪽) | 독립 리뷰어 | 80점, 33/39 확인 · 미반영 1 · 새 문제 minor 3 | ✅ `docs/plan/revision_round4.md` |
+| 5차 | 전체 122쪽 | **외부 LLM(GPT/Gemini)** | ⏳ 사용자 실행 대기 (키 없음 → 수동 안내 `round5-external/MANUAL.md`) | ⬜ |
 
 > 외부 LLM(GPT·Gemini) 검토는 아직 **한 번도 실행되지 않았다**(키·네트워크 없음, 4장 참고). 결과를 지어내지 않았고, 각 회차 폴더에 `SKIPPED.md`와 수동 검토용 `packet/`이 있다.
 
@@ -43,7 +44,7 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 
 1. **GitHub 푸시** (4장 참고). 지금까지의 커밋은 로컬에만 있다. 권한이 고쳐지면 `git push -u origin claude/ai-literacy-curriculum-tpah6j`.
    - 이 세션에서 끝내 푸시하지 못한 경우: 이 세션이 남긴 `ai-stuff.bundle`(git bundle)을 내려받아 내 컴퓨터에서 `git clone ai-stuff.bundle ai-stuff && cd ai-stuff && git push origin claude/ai-literacy-curriculum-tpah6j`.
-2. **외부 LLM 교차 검토(5차)**: 키가 생기면 GPT·Gemini로 전체를 다시 검토한다. 결과는 `docs/plan/revision_round5.md`에 반영표로 남긴다.
+2. **외부 LLM 교차 검토(5차)** — 자료 준비 완료(2026-11-04): 수동 실행 안내 `reports/crossreview/round5-external/MANUAL.md`(PDF 첨부 + 붙여 넣을 글), API용 묶음 `reports/crossreview/round5-external-a|b|c/packet/`. 키가 생기면 GPT·Gemini로 전체를 다시 검토한다. 결과는 `docs/plan/revision_round5.md`에 반영표로 남긴다.
    `python harness/crossreview/review.py --rubric pages --pdf dist/ai-literacy-workbook.pdf --pages 1-46 --label gpt-r5a` (47-84, 85-122도 같은 방식)
    키 없이도 각 `reports/crossreview/*/packet/PROMPT.md`와 이미지를 ChatGPT·Gemini 웹에 붙여 수동 검토 가능.
 3. 원고를 고칠 때마다 `bash harness/verify.sh --png` → **RESULT: PASS** 확인.
@@ -53,7 +54,7 @@ AI 지식이 없는 중장년·비전공자용 **A4 문제집형 AI 리터러시
 
 | 문제 | 상태 | 해결 |
 |---|---|---|
-| **GitHub 푸시 403** — "Claude doesn't have GitHub access to ljb0967/ai-stuff" | ❌ 미해결. **로컬 커밋만 있고 원격에 없음** | 사용자가 https://claude.ai/connect-github 에서 GitHub 재연결 / Claude GitHub App을 저장소에 설치. 그 뒤 `git push -u origin claude/ai-literacy-curriculum-tpah6j` |
+| **GitHub 푸시 403** — "Claude doesn't have GitHub access to ljb0967/ai-stuff" | ❌ 미해결(2026-11-04 재확인: GitHub MCP는 ljb0967로 인증되고 저장소는 빈 상태, git 푸시만 Claude GitHub App 미설치로 거부). **로컬 커밋만 있고 원격에 없음** | 사용자가 https://claude.ai/connect-github 에서 GitHub 재연결 / Claude GitHub App을 저장소에 설치. 그 뒤 `git push -u origin claude/ai-literacy-curriculum-tpah6j` |
 | 외부 LLM 교차 검토 불가 | ❌ 미해결 | `api.openai.com`은 네트워크 정책에서 막힘 → 환경 설정 Network access에 허용 추가. Gemini 엔드포인트는 열려 있음. 환경 변수 `OPENAI_API_KEY` 또는 `GEMINI_API_KEY` 설정(새 세션부터 적용). 키 없이도 `packet/PROMPT.md`를 웹 UI에 붙여 수동 검토 가능 |
 | 원문 PDF 일부 미열람 | ⚠ | 세션 네트워크 제한으로 OECD·UNESCO 원문은 웹 검색 요약으로 대신함(`docs/research/*`에 ⚠ 표시) |
 
